@@ -44,16 +44,21 @@ GNU/Linux Developer
 .. |zy| replace::  [更多]
 .. _zy: http://www.wangxiaomao.net/?p=734
 
-#### `[ArchLinux安装手记] <http://www.wangxiaomao.net/?p=521>`_
+`ArchLinux安装手记 <http://www.wangxiaomao.net/?p=521>`_
+------------------------------------------------------------
 
 > 基本上来说呢，自己手动搞一下ArchLinux，会对Linux有一个更为深入的理解。这货没有Fedora或者Ubuntu那样方便的安装程序用于安装，而是所有的步骤和操作都需要自己动手完成...
 [更多](http://www.wangxiaomao.net/?p=521)
 
-#### [通过SSH远程安装Archlinux](http://www.wangxiaomao.net/?p=589)
-> 其实在引导起来以后，已经是一个功能比较完备的简装系统了，所以为何不启动完成后就打开SSH，然后远程来安装。至少，在SSH客户端里面，原来要通过敲键盘输入的东西，可以直接ctrl+c、ctrl+v了...
-[更多](http://www.wangxiaomao.net/?p=589)
+`通过SSH远程安装Archlinux <http://www.wangxiaomao.net/?p=589>`_
+----------------------------------------------------------------
 
-#### [把Archlinux安装到U盘](http://www.wangxiaomao.net/?p=594)
+> 其实在引导起来以后，已经是一个功能比较完备的简装系统了，所以为何不启动完成后就打开SSH，然后远程来安装。至少，在SSH客户端里面，原来要通过敲键盘输入的东西，可以直接ctrl+c、ctrl+v了...
+ `[更多] <http://www.wangxiaomao.net/?p=589>`_
+
+`把Archlinux安装到U盘 <http://www.wangxiaomao.net/?p=594>`_
+-------------------------------------------------------------
+
 > 最近突然发现手头的笔记本硬盘突然变缺稀了，主要是之前又一次手贱买了个装两块笔记本硬盘的raid盒子，后来又把IDE的移动硬盘弄坏了，于是就悲剧了，扯来扯去就剩一个SSD和一个给小猫做看动画用的移动硬盘了，于是俩笔记本都陷入了要悲剧的边缘。
 后来想，1501这朵奇葩，既然电池啥的都已经烈士了，而且这货又有着可以拿去铺地的身材，所以干脆了，直接买了俩ScanDisk的小魔豆，插到USB上也几乎看不出来，然后装Archlinux到魔豆里，然后这货就放那滚着玩了...
 [更多](http://www.wangxiaomao.net/?p=594)
