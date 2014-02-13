@@ -78,7 +78,7 @@ GNU/Linux Developer
 
 一段代码
 --------
-.. code_block:: bash
+.. code-block:: bash
 
 #!/usr/bin/env bash
 #获取ip更新并发送邮件
