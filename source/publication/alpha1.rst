@@ -80,15 +80,15 @@ GNU/Linux Developer
 --------
 .. code-block:: bash
 
-#!/usr/bin/env bash
-#获取ip更新并发送邮件
-ip_log=ip.log
-now_ip=$(curl ifconfig.me)
-old_ip=$(cat $ip_log)
-if [[ "$now_ip" != "$old_ip" ]]; then
-      echo "$now_ip" > $ip_log
-      mutt -s "Ip changed" xxx@gmail.com < ip.log
-fi
+    #!/usr/bin/env bash
+    #获取ip更新并发送邮件
+    ip_log=ip.log
+    now_ip=$(curl ifconfig.me)
+    old_ip=$(cat $ip_log)
+    if [[ "$now_ip" != "$old_ip" ]]; then
+          echo "$now_ip" > $ip_log
+          mutt -s "Ip changed" xxx@gmail.com < ip.log
+    fi
 
 成员推荐
 --------
