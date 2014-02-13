@@ -1,7 +1,7 @@
-.. image:: https://www.kernel.org/theme/images/logos/tux.png
 ------------------------------------------------------------------------------------
 GNU/Linux Developer
 ------------------------------------------------------------------------------------
+.. image:: https://www.kernel.org/theme/images/logos/tux.png
 
 | **kernel stable: 3.12.5**  
 | **QQ群号：20506135**  
