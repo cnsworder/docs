@@ -48,7 +48,7 @@ GNU/Linux Developer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 基本上来说呢，自己手动搞一下ArchLinux，会对Linux有一个更为深入的理解。这货没有Fedora或者Ubuntu那样方便的安装程序用于安装，而是所有的步骤和操作都需要自己动手完成...
-[更多](http://www.wangxiaomao.net/?p=521)
+`[更多] <http://www.wangxiaomao.net/?p=521>`_
 
 `通过SSH远程安装Archlinux <http://www.wangxiaomao.net/?p=589>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -79,15 +79,20 @@ GNU/Linux Developer
 ----------
 
 `基于VBOX的各版本Linux OVA <http://www.wangxiaomao.net/?p=495>`_  
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 作者：`猫猫 <成员推荐_>`_
 
-> VirtualBox的OVA镜像文件
+  VirtualBox的OVA镜像文件
 
-#### [c/c++资源（源码、开发工具、开发库）](http://blog.csdn.net/cnsword/article/details/4176636)
+
+`c/c++资源（源码、开发工具、开发库） <http://blog.csdn.net/cnsword/article/details/4176636>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 作者：江湖郎中
-> c/c++开发工具，编译器，调试分析，构建，开发库，源码  
+
+  c/c++开发工具，编译器，调试分析，构建，开发库，源码  
+
 
 群内问答
 ---------
@@ -133,6 +138,7 @@ GNU/Linux Developer
 | 技术：杂食的  
 | 简介：别人以为我是只企鹅，可是我希望自己做只猫
 
+.. note:: 
 
 欢迎群成员自荐自己的blog文章和收集的资源，发 `邮件 <mailto:cnsworder@gmail.com>`_ 给我，如果有意见或建议都可以mail我。  
 如果无法直接在邮件内查看，请访问 `github上的页面 <https://github.com/cnsworder/publication/blob/master/alpha1.md>`_ 或 `网站 <http://ssh.cnsworder.com/publication/alpha1.html>`_ 。  
