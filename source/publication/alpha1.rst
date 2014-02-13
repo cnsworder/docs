@@ -12,7 +12,7 @@ GNU/Linux Developer
 
 我曾怀着虔诚的心朝拜 `GNU`_ 神圣殿堂，它的光芒始终照耀着我前行。
 
-.. _GNU: http://www.gnu.org
+.. _`GNU`: http://www.gnu.org
 
 自由软件与开源软件是为了更好的尊重我们的劳动成果，消除版权所保护所不能适应的更迅速发展的软件行业的一种机制，通过适当的条款来保护合作与分享，这正在形成一种社会化开发的新趋势。[编程一小时](http://code.org/)更促使社会化开发的范围由[github](http://www.github.com)等code群体扩展为整个社会群体的行为，商业软件行为本身没有错误，只是原有的开发模式已经不适应未来的发展趋势。  
 自由/开源不等于免费，参与你所使用的软件的开发，为你使用的软件贡献代码、捐赠或付费，尊重授权协议，尊重我们共同的劳动成果。  
@@ -44,7 +44,8 @@ GNU/Linux Developer
 .. |zy| replace::  [更多]
 .. _zy: http://www.wangxiaomao.net/?p=734
 
-#### [ArchLinux安装手记](http://www.wangxiaomao.net/?p=521)
+#### `[ArchLinux安装手记] <http://www.wangxiaomao.net/?p=521>`_
+
 > 基本上来说呢，自己手动搞一下ArchLinux，会对Linux有一个更为深入的理解。这货没有Fedora或者Ubuntu那样方便的安装程序用于安装，而是所有的步骤和操作都需要自己动手完成...
 [更多](http://www.wangxiaomao.net/?p=521)
 
