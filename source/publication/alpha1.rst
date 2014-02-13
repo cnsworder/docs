@@ -19,12 +19,15 @@ GNU/Linux Developer
 
 
 本期专题：Archlinux安装
+B
 =========================
 
 .. image:: http://distrowatch.com/images/yvzhuwbpy/arch.png
 
-作者：`猫猫`_
-.. _猫猫: 成员推荐_
+作者：|mm|_
+
+.. |mm| replace:: 猫猫
+.. _mm: 成员推荐_
 
 
 为了自由的名义_   
