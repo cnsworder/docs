@@ -1,5 +1,6 @@
+.. image:: https://www.kernel.org/theme/images/logos/tux.png
 ------------------------------------------------------------------------------------
-![GNU/Linux](https://www.kernel.org/theme/images/logos/tux.png)GNU/Linux Developer
+GNU/Linux Developer
 ------------------------------------------------------------------------------------
 
 **`kernel stable:3.12.5`**  
