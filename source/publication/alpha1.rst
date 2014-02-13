@@ -1,4 +1,3 @@
-B
 ------------------------------------------------------------------------------------
 GNU/Linux Developer
 ------------------------------------------------------------------------------------
@@ -103,10 +102,12 @@ GNU/Linux Developer
 成员推荐
 --------
 <a name="mm"></a>
-![Photo](http://www.wangxiaomao.net/mdphoto.png)  
+
+.. image:: http://www.wangxiaomao.net/mdphoto.png
+
 网名：猫猫  
 群ID：[济南]猫猫  
-主页：<http://www.wangxiaomao.net>  
+主页：`猫猫 <http://www.wangxiaomao.net>`_  
 技术：杂食的  
 简介：别人以为我是只企鹅，可是我希望自己做只猫
 - - -
