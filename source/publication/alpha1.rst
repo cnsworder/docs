@@ -3,9 +3,9 @@ GNU/Linux Developer
 
 .. image:: https://www.kernel.org/theme/images/logos/tux.png
 
-| **kernel stable: 3.12.5**  
-| **QQ群号：20506135**  
-| **本期编辑：江湖郎中**
+:版本: 3.12.5
+:QQ群号: 20506135  
+:本期编辑: 江湖郎中
 
 
 很荣幸的向各位Linux开发QQ群的成员宣布《GNU/Linux Developer》第\ **alpha1**\ 期发布了！   
@@ -139,7 +139,7 @@ GNU/Linux Developer
 | 简介：别人以为我是只企鹅，可是我希望自己做只猫
 
 
-.. note:: 
+.. note:: 说明
 
     欢迎群成员自荐自己的blog文章和收集的资源，发 `邮件 <mailto:cnsworder@gmail.com>`_ 给我，如果有意见或建议都可以mail我。  
     如果无法直接在邮件内查看，请访问 `github上的页面 <https://github.com/cnsworder/publication/blob/master/alpha1.md>`_ 或 `网站 <http://ssh.cnsworder.com/publication/alpha1.html>`_ 。  
