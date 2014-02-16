@@ -15,7 +15,7 @@
 本期专题：使用Python简易推荐系统的构建
 ------------------------------------------
 
-作者：`唯一 <作者简介_>`_  
+作者： `唯一 <作者简介_>`_  
 
 
 很惭愧的，被 **猫猫** 给坑了，让我一个半桶水的家伙，跟大家分享个挺好玩的东西。尽管不是挺深入，但是绝对够科普。
@@ -24,7 +24,7 @@
 个性化推荐是根据用户的兴趣特点和购买行为，向用户推荐用户感兴趣的信息和商品。
 随着电子商务规模的不断扩大，商品个数和种类快速增长，顾客需要花费大量的时间才能找到自己想买的商品。
 这种浏览大量无关的信息和产品过程无疑会使淹没在信息过载问题中的消费者不断流失。为了解决这些问题，个性化推荐系统应运而生。
-个性化推荐系统是建立在海量数据挖掘基础上的一种高级商务智能平台，以帮助电子商务网站为其顾客购物提供完全个性化的决策支持和信息服务。[参考](http://baike.baidu.com/link?url=gbQqn-cunVUepgu9tUmsvTDSTm_goZZTJfgBgB1Yj8OJ8T4xtB_D_kt3GAaqCbY8Qgijl9GmR88KdiUXbXYKj_)
+个性化推荐系统是建立在海量数据挖掘基础上的一种高级商务智能平台，以帮助电子商务网站为其顾客购物提供完全个性化的决策支持和信息服务。 `参考 <http://baike.baidu.com/link?url=gbQqn-cunVUepgu9tUmsvTDSTm_goZZTJfgBgB1Yj8OJ8T4xtB_D_kt3GAaqCbY8Qgijl9GmR88KdiUXbXYKj_>`_ 
 
 
 说白了，推荐系统就是你在淘宝或者亚马逊购买东西的时候，应该可以看到页面中，会出现由网站向你推荐的商品，往往那些商品会让你觉得很适合你,据说，推荐系统为亚马逊带来的的利润是30%，也就是意味着有30%的成交量是用户因为网站的推荐而购买的。
@@ -258,5 +258,5 @@ Tip
 .. note::
 
         欢迎群成员自荐自己的blog文章和收集的资源，发 `邮件 <mailto:cnsworder@gmail.com>`_ 给我，如果有意见或建议都可以mail我。  
-        如果无法直接在邮件内查看，请访问 `github上的页面 <https://github.com/cnsworder/publication/blob/master/alpha2.md>`_ 或`网站 <http://ssh.cnsworder.com/alpha2.html>`_。  
+        如果无法直接在邮件内查看，请访问 `github上的页面 <https://github.com/cnsworder/publication/blob/master/alpha2.md>`_ 或 `网站 <http://ssh.cnsworder.com/alpha2.html>`_ 。  
         我们在github上开放编辑希望大家能参与到其中。
