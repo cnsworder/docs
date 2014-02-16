@@ -1,4 +1,4 @@
-第Alpha2期
+第Alpha1期
 =========================
 
 .. image:: https://www.kernel.org/theme/images/logos/tux.png
