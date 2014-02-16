@@ -4,7 +4,9 @@
 .. image:: https://www.kernel.org/theme/images/logos/tux.png
 
 :版本: 3.12.5
-:QQ群号: 20506135  
+
+:QQ群号: 20506135 
+
 :本期编辑: 江湖郎中
 
 
