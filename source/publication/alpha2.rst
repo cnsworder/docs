@@ -172,34 +172,35 @@ def getRecommendations(prefs,person,similarity = sim_pearson):
 
 一段代码
 --------
+
 .. code-block:: python
 
-#!/usr/env python
-import socket
-from smtplib import *
-from email import *
-"""
-   上一期，通过bash脚本借助curl获取ifconfig.me返回的地址并发送邮件，
-   这一期我们用python实现借助dnspod来获取外网ip地址并发送邮件
-"""
-def get_ip():
-    sock = socket.create_connection(('ns1.dnspod.net', 6666))
-    ip = sock.recv(16)
-    sock.close()
-    return ip
+    #!/usr/env python
+    import socket
+    from smtplib import *
+    from email import *
+    """
+       上一期，通过bash脚本借助curl获取ifconfig.me返回的地址并发送邮件，
+       这一期我们用python实现借助dnspod来获取外网ip地址并发送邮件
+    """
+    def get_ip():
+        sock = socket.create_connection(('ns1.dnspod.net', 6666))
+        ip = sock.recv(16)
+        sock.close()
+        return ip
  
-def send_mail():
-   s = SMTP()
-   s.connect("smtp.xxx.com")
-   s.login("xx@xx.com", "xx")
-   msg = mime.Multipart.MIMEMultipart()
-   msg['Subject'] = u"RaspberryPi IP"
-   msg['From'] = "xx@xx.com"
-   msg['To'] = 'xx@xx.com'
-   text = "Your home IP: " + get_ip()
-   msg.attach(mime.Text.MIMEText(text, "plain", "utf-8"))
-   se = s.sendmail("xx@xx.com", ['xx@xx.com'], msg.as_string())
-   s.quit()
+    def send_mail():
+       s = SMTP()
+       s.connect("smtp.xxx.com")
+       s.login("xx@xx.com", "xx")
+       msg = mime.Multipart.MIMEMultipart()
+       msg['Subject'] = u"RaspberryPi IP"
+       msg['From'] = "xx@xx.com"
+       msg['To'] = 'xx@xx.com'
+       text = "Your home IP: " + get_ip()
+       msg.attach(mime.Text.MIMEText(text, "plain", "utf-8"))
+       se = s.sendmail("xx@xx.com", ['xx@xx.com'], msg.as_string())
+       s.quit()
 
 
 开源吉祥物
