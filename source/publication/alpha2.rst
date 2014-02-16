@@ -9,16 +9,16 @@
 
 :本期编辑: 猫猫  
 
-《GNU/Linux Developer》第**Aplha2**期在春节前和大家见面了，本期*唯一*将为大家带来专题**使用Python构建简易推荐系统**。  
+《GNU/Linux Developer》第**Aplha2**期在春节前和大家见面了，本期 *唯一* 将为大家带来专题 **使用Python构建简易推荐系统** 。  
 
 
 本期专题：使用Python简易推荐系统的构建
 ------------------------------------------
 
-**作者：[唯一](#tj)**  
+作者：`唯一 <作者简介_>`_  
 
 
-很惭愧的，被**猫猫**给坑了，让我一个半桶水的家伙，跟大家分享个挺好玩的东西。尽管不是挺深入，但是绝对够科普。
+很惭愧的，被 **猫猫** 给坑了，让我一个半桶水的家伙，跟大家分享个挺好玩的东西。尽管不是挺深入，但是绝对够科普。
 
 
 个性化推荐是根据用户的兴趣特点和购买行为，向用户推荐用户感兴趣的信息和商品。
@@ -34,7 +34,8 @@ OK,首先我们今天是用最简单的方式来构建推荐系统，这个方�
 这种方式是基于用户的（还有基于内容之类的方式，由于比较深入就不讲究了）。
 大家对电影可能比较熟悉，也有去过豆瓣之类的站点为自己看过的电影打分吧。接下来，我们就自己模拟一堆数据，来做演示。
 
-``` json
+.. code-block:: json
+
 perfers = {
     'Tom': {'Movie1': 2.5, 'Movie2': 3.5, 'Movie3': 3.0, 'Movie4': 3.5, 'Movie5': 2.5, 'Movie6': 3.0},
     'Jackson': {'Movie1': 3.0, 'Movie2': 3.5, 'Movie3': 1.5, 'Movie4': 5.0, 'Movie6': 3.0, 'Movie5': 3.5},
@@ -44,7 +45,7 @@ perfers = {
     'Angelia': {'Movie1': 3.0, 'Movie2': 4.0, 'Movie6': 3.0, 'Movie4': 5.0, 'Movie5': 3.5},
     'Jack': {'Movie2': 4.5, 'Movie5': 1.0, 'Movie4': 4.0}
 }
-```
+
 
 在这里，我们用perfers这个字典来保存Tom、Jackson...Jack等用户对不同的电影的评分，如果你们接下来有兴趣去试一下的，可以去调用豆瓣的接口收集一些用户对不同的电影的评分。
 这里有一些用户会有其他用户没有评分过的电影的评分，这里假设没有评分就是没有看过。
@@ -55,26 +56,27 @@ OK，接下来，我们要引入一个概念，那个概念就是用户的相似
 `相似度 = 1 /（1 + 欧式距离）`   
 加1 是为了防止距离为0  
 
-``` python
-def sim_distance(prefs, person1, person2):
-    si = {}
-    for it in prefs[person1]: #找出共同点
-        if it in prefs[person2]:
-            si[it] = 1
-    if len(si) == 0:
-        return 0
-    pSum = math.sqrt(sum(pow(prefs[person1][it] - prefs[person2][it],2) for it in si))
-    return 1.0 / (1 + pSum)
-```
+.. code-block:: python
+    def sim_distance(prefs, person1, person2):
+        si = {}
+        for it in prefs[person1]: #找出共同点
+            if it in prefs[person2]:
+                si[it] = 1
+        if len(si) == 0:
+            return 0
+        pSum = math.sqrt(sum(pow(prefs[person1][it] - prefs[person2][it],2) for it in si))
+        return 1.0 / (1 + pSum)
 
-运行下面的结果得到 
-> `print sim_distance(perfers,"Tom","Jackson")`  
-> `0.294298055086`
+运行下面的结果得到
+
+>>> print sim_distance(perfers,"Tom","Jackson")  
+>>> 0.294298055086
 
 欧几里得距离评价法是一种比较简单的方法。但是由于存在一些用户总是倾向于评分过高或过低（相对平均值），
 这时兴趣相似的用户并不能通过此方法计算出来。Pearson相关系数是根据两组数据与某一直线的拟合程度来衡量的。  
 OK,Pearson相关系数，又叫做[皮尔逊相关系数](http://zh.wikipedia.org/wiki/%E7%9A%AE%E5%B0%94%E9%80%8A%E7%A7%AF%E7%9F%A9%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0),（我也看不懂，直接扔代码...）  
-``` python
+.. code-block:: python
+
 def sim_pearson(prefer, person1, person2):
     sim = {}
     #查找双方都评价过的项
@@ -98,7 +100,7 @@ def sim_pearson(prefer, person1, person2):
     if num2 == 0:
         return 0
     return num1 / num2
-```
+
 
 **测试下**
 > print sim_pearson(perfers, "Tom", "Jackson")  
@@ -107,14 +109,15 @@ def sim_pearson(prefer, person1, person2):
 看到了吧，通过上述的方式我们可以计算出一个两个用户之间的相似度（也就是对同一种东西的看法的相似度，那所谓的推荐系统是不是呼之欲出了呢）。没错，刚刚开始最简单的推荐系统就是通过计算每一个用户跟其他用户的相似度，然后按照相似度排序完之后，将相似度高的A向B推荐B没有接触过而A已经接触过的东西。  
 **注：**这种方式也就是基于用户的协同过滤，此时用于物品基本上跟用户之间的比例差不大的情况下才适合。如果用户多了呢，此时怎么办，留给大家的思考  
 OK，老规矩，继续贴代码。此时定义一个函数名字叫做 *topMatches* 用来得到某个人的排序过的用户匹配度，代码相当简单就不解释了。  
-``` python
+.. code-block:: python
+
 def topMatches(prefs, person, n = 5, similarity = sim_pearson):
     scores=[(similarity(prefs, person, other),other)
             for other in prefs if other != person]
     scores.sort()
     scores.reverse()
     return scores[0:n] 
-```
+
 **测试下**  	
 > print topMatches(perfers, "Tom")  
 > print topMatches(perfers, "Jack")  
@@ -125,7 +128,8 @@ def topMatches(prefs, person, n = 5, similarity = sim_pearson):
 > [(0.9912407071619299, 'Tom'), (0.9244734516419049, 'Aimee'), (0.8934051474415647, 'Abby'), (0.66284898035987, 'Angelia'), (0.38124642583151164, 'Jackson')]
 
 那接下来，进入最后一步了，请问，我想得到推荐给Tom的东西要怎么做...  
-``` python
+.. code-block:: python
+
 def getRecommendations(prefs,person,similarity = sim_pearson):
     totals = {}
     simSums = {}
@@ -148,7 +152,7 @@ def getRecommendations(prefs,person,similarity = sim_pearson):
     rankings.sort()
     rankings.reverse()
     return rankings
-```
+
 **测试下** 
 > print getRecommendations(perfers,"Tom")  
 > print getRecommendations(perfers,"Jack")  
