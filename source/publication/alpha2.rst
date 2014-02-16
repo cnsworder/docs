@@ -57,6 +57,7 @@ OK，接下来，我们要引入一个概念，那个概念就是用户的相似
 加1 是为了防止距离为0  
 
 .. code-block:: python
+
     def sim_distance(prefs, person1, person2):
         si = {}
         for it in prefs[person1]: #找出共同点
@@ -75,6 +76,7 @@ OK，接下来，我们要引入一个概念，那个概念就是用户的相似
 欧几里得距离评价法是一种比较简单的方法。但是由于存在一些用户总是倾向于评分过高或过低（相对平均值），
 这时兴趣相似的用户并不能通过此方法计算出来。Pearson相关系数是根据两组数据与某一直线的拟合程度来衡量的。  
 OK,Pearson相关系数，又叫做[皮尔逊相关系数](http://zh.wikipedia.org/wiki/%E7%9A%AE%E5%B0%94%E9%80%8A%E7%A7%AF%E7%9F%A9%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0),（我也看不懂，直接扔代码...）  
+
 .. code-block:: python
 
 def sim_pearson(prefer, person1, person2):
@@ -109,6 +111,7 @@ def sim_pearson(prefer, person1, person2):
 看到了吧，通过上述的方式我们可以计算出一个两个用户之间的相似度（也就是对同一种东西的看法的相似度，那所谓的推荐系统是不是呼之欲出了呢）。没错，刚刚开始最简单的推荐系统就是通过计算每一个用户跟其他用户的相似度，然后按照相似度排序完之后，将相似度高的A向B推荐B没有接触过而A已经接触过的东西。  
 **注：**这种方式也就是基于用户的协同过滤，此时用于物品基本上跟用户之间的比例差不大的情况下才适合。如果用户多了呢，此时怎么办，留给大家的思考  
 OK，老规矩，继续贴代码。此时定义一个函数名字叫做 *topMatches* 用来得到某个人的排序过的用户匹配度，代码相当简单就不解释了。  
+
 .. code-block:: python
 
 def topMatches(prefs, person, n = 5, similarity = sim_pearson):
@@ -127,7 +130,8 @@ def topMatches(prefs, person, n = 5, similarity = sim_pearson):
 > [(0.9912407071619299, 'Jack'), (0.7470178808339965, 'Angelia'), (0.5940885257860044, 'Aimee'), (0.5669467095138396, 'Abby'), (0.40451991747794525, 'Scotte')]  
 > [(0.9912407071619299, 'Tom'), (0.9244734516419049, 'Aimee'), (0.8934051474415647, 'Abby'), (0.66284898035987, 'Angelia'), (0.38124642583151164, 'Jackson')]
 
-那接下来，进入最后一步了，请问，我想得到推荐给Tom的东西要怎么做...  
+那接下来，进入最后一步了，请问，我想得到推荐给Tom的东西要怎么做... 
+
 .. code-block:: python
 
 def getRecommendations(prefs,person,similarity = sim_pearson):
