@@ -3,9 +3,7 @@
 =========
 
 .. toctree::
+
    publication/alpha1
+   publication/alpha2
 
-|n1|_
-
-.. |n1| replace:: 下一期
-.. _n1: publication/alpha1.html
