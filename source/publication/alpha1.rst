@@ -1,4 +1,4 @@
-GNU/Linux Developer
+第Alpha2期
 =========================
 
 .. image:: https://www.kernel.org/theme/images/logos/tux.png
