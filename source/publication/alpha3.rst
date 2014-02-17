@@ -207,7 +207,7 @@ cmake命令行
 
 webpy使用到得基本技术
 ^^^^^^^^^^^^^^^^^^^^^^
-  
+
 如果你也要拆解一下webpy，你需要重点注意一下Python的几个技术 
 
 #. closure(闭包)
@@ -308,7 +308,6 @@ web.py的httpserver有一个比较凌乱的调用过程，是在太多凌乱了�
 
 分析web.py的感受    
 ^^^^^^^^^^^^^^^^^^^
-
 我在分析web.py只是最为httpserver来分析的，当然也只是分析了它如何实现httpserver。但是我也看到了它在使用ssl，chunkTransfer等等一些http服务器应用的代码。web.py一个优秀的httpserver，在这里我只是分析它的实现逻辑，但是对它更加细节部分缺少理解，也对他如何将这些细节组合在一起也缺少理解。    
 我想以后我还会更加深入的分析web.py这款简单的httpserver。
 
@@ -319,14 +318,16 @@ web.py的httpserver有一个比较凌乱的调用过程，是在太多凌乱了�
 资源推荐
 ------------
 
-《essential C++》：这是一本绝对值得推荐的C++入门书。不厚200多页。但是在这200多页，里边 Stanley B.lippman，C++的创始人。就会交给你学习C++注意的关键细节。中文版的作者--侯捷，也是一位大牛，强强联手，品质保证。    
-[nginx lua](https://github.com/chaoslawful/lua-nginx-module):nginx配置文件执行lua脚本，以往nginx做反向代理都是在配置文件中配置，现在直接放到数据里里边，通过lua脚本来做。省了不少事情，数据迁移问题也少了很多。    
+《essential C++》：这是一本绝对值得推荐的C++入门书。不厚200多页。但是在这200多页，里边 Stanley B.lippman，C++的创始人。就会交给你学习C++注意的关键细节。中文版的作者--侯捷，也是一位大牛，强强联手，品质保证。
+
+[nginx lua](https://github.com/chaoslawful/lua-nginx-module):nginx配置文件执行lua脚本，以往nginx做反向代理都是在配置文件中配置，现在直接放到数据里里边，通过lua脚本来做。省了不少事情，数据迁移问题也少了很多。
+
 [网易公开课](http://open.163.com):好东西，尤其MIT，哈佛的课程。可以推荐的好多啊。    
 
 一段代码
 --------
 
-.. code-block:: Python
+.. code-block:: python
     def anna(fn):
         def new_func(*args):
             print 'by anna args=%s' % args
@@ -381,6 +382,7 @@ Tip
 使用
 ^^^^^
 快速制作启动U盘
+
 >>> dd if=[镜像文件] of=[u盘设备] bs=4M
 
 
