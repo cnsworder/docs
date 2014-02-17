@@ -251,12 +251,12 @@ webpy使用到得基本技术
 
 
 #. 面向对象    
-    
     python本身就是面向对象的语言，web.py使用面向对象的本来就是水到渠成的，在追踪代码时候，如果方法并没有在这个类里边，请考虑它的父类实现有这样的方法。
 
     web.py解析(httpserver部分)
 
     **web.py例子**
+
     .. code-block:: python
         import web
 
@@ -375,7 +375,7 @@ Tip
 
     echo "1" > /proc/sys/net/ipv4/tcp_tw_reuse    
     echo "1" > /proc/sys/net/ipv4/tcp_tw_recycle  
-      
+
 这样对TIME_WAIT的套接字进行回收利用，减少TIME_WAIT浪费的套接字。
 
 使用
