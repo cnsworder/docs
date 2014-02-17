@@ -9,7 +9,7 @@
 
 :本期编辑: 猫猫  
 
-《GNU/Linux Developer》第**Aplha2**期在春节前和大家见面了，本期 *唯一* 将为大家带来专题 **使用Python构建简易推荐系统** 。  
+《GNU/Linux Developer》第 **Aplha2** 期在春节前和大家见面了，本期 *唯一* 将为大家带来专题 **使用Python构建简易推荐系统** 。  
 
 
 本期专题：使用Python简易推荐系统的构建
@@ -36,15 +36,15 @@ OK,首先我们今天是用最简单的方式来构建推荐系统，这个方�
 
 .. code-block:: json
 
-perfers = {
-    'Tom': {'Movie1': 2.5, 'Movie2': 3.5, 'Movie3': 3.0, 'Movie4': 3.5, 'Movie5': 2.5, 'Movie6': 3.0},
-    'Jackson': {'Movie1': 3.0, 'Movie2': 3.5, 'Movie3': 1.5, 'Movie4': 5.0, 'Movie6': 3.0, 'Movie5': 3.5},
-    'Scotte': {'Movie1': 2.5, 'Movie2': 3.0, 'Movie4': 3.5, 'Movie6': 4.0},
-    'Abby': {'Movie2': 3.5, 'Movie3': 3.0, 'Movie6': 4.5, 'Movie4': 4.0, 'Movie5': 2.5},
-    'Aimee': {'Movie1': 3.0, 'Movie2': 4.0, 'Movie3': 2.0, 'Movie4': 3.0, 'Movie6': 3.0, 'Movie5': 2.0},
-    'Angelia': {'Movie1': 3.0, 'Movie2': 4.0, 'Movie6': 3.0, 'Movie4': 5.0, 'Movie5': 3.5},
-    'Jack': {'Movie2': 4.5, 'Movie5': 1.0, 'Movie4': 4.0}
-}
+    perfers = {
+        'Tom': {'Movie1': 2.5, 'Movie2': 3.5, 'Movie3': 3.0, 'Movie4': 3.5, 'Movie5': 2.5, 'Movie6': 3.0},
+        'Jackson': {'Movie1': 3.0, 'Movie2': 3.5, 'Movie3': 1.5, 'Movie4': 5.0, 'Movie6': 3.0, 'Movie5': 3.5},
+        'Scotte': {'Movie1': 2.5, 'Movie2': 3.0, 'Movie4': 3.5, 'Movie6': 4.0},
+        'Abby': {'Movie2': 3.5, 'Movie3': 3.0, 'Movie6': 4.5, 'Movie4': 4.0, 'Movie5': 2.5},
+        'Aimee': {'Movie1': 3.0, 'Movie2': 4.0, 'Movie3': 2.0, 'Movie4': 3.0, 'Movie6': 3.0, 'Movie5': 2.0},
+        'Angelia': {'Movie1': 3.0, 'Movie2': 4.0, 'Movie6': 3.0, 'Movie4': 5.0, 'Movie5': 3.5},
+        'Jack': {'Movie2': 4.5, 'Movie5': 1.0, 'Movie4': 4.0}
+    }
 
 
 在这里，我们用perfers这个字典来保存Tom、Jackson...Jack等用户对不同的电影的评分，如果你们接下来有兴趣去试一下的，可以去调用豆瓣的接口收集一些用户对不同的电影的评分。
@@ -54,7 +54,7 @@ OK，接下来，我们要引入一个概念，那个概念就是用户的相似
 我们在数学上应该学过两条点之间的距离，也就是欧几里得距离欧几里得距离会等于 ``sqrt(sum(xs-ys,2))`` 
 `参考 <http://baike.baidu.com/view/2869924.htm?fromtitle=%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E8%B7%9D%E7%A6%BB&fromid=2701459&type=syn>`_ ,
 
-因此我们定义一个函数::
+因此我们定义一个函数 ::
 
   相似度 = 1 /（1 + 欧式距离）
 
