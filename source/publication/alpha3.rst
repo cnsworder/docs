@@ -146,7 +146,7 @@ now项目，包含now1.c，now1.h和now2.h，now2.c四个文件，目标是生�
     >>> “$@”表示目标的集合，就像一个数组，“$@”依次取出目标，并执于命令。    
     >>> “$<”表示所有的依赖目标集    
 
-具体的内容，可以查看陈皓的`《跟我一些Makefile》 <http://wiki.ubuntu.org.cn/%E8%B7%9F%E6%88%91%E4%B8%80%E8%B5%B7%E5%86%99Makefile>`_ 。
+具体的内容，可以查看陈皓的 `《跟我一些Makefile》 <http://wiki.ubuntu.org.cn/%E8%B7%9F%E6%88%91%E4%B8%80%E8%B5%B7%E5%86%99Makefile>`_ 。
 
 Makefile和CMake
 ^^^^^^^^^^^^^^^^^^^
@@ -281,12 +281,12 @@ webpy使用到得基本技术
         3. 终于到了 ``WSGIServer`` ， ``WSGIServer`` 也很简单，只有一点方法 ``wsgiserver.CherryPyWSGIServer(server_address, wsgi_app, server_name)`` .  
     #. ``wsgiserver.CherryPyWSGIServer`` ，创建了线程池ThreadPool， ``WSGIGateway_10`和`httpserver`` 的各项参数，如端口，接收请求的根数，超时时间等。    
     #. 这里结束了 ``wsgiserver.CherryPyWSGIServer`` ，回到WSGIServer方法，再回到 ``httpserver.runsimple`` ，到了server.start()    
-    #. server.start()正式开始创建了socket，并开始监听。启动了线程池（requests.start()），把线程池装满线程。开始接受连接，对连接的socket进行封装成connection。把connection放入连接池。与此同时线程池中的线程也在工作着，从连接池拿到连接，然后调用conn.communication  
-    #. communication方法的作用，创建HTTPRequest，分析`request`，`req.response`.    
+    #. ``server.start()`` 正式开始创建了socket，并开始监听。启动了线程池 ``（requests.start()）`` ，把线程池装满线程。开始接受连接，对连接的socket进行封装成connection。把connection放入连接池。与此同时线程池中的线程也在工作着，从连接池拿到连接，然后调用 ``conn.communication``
+    #. communication方法的作用，创建HTTPRequest，分析 ``request`` ， ``req.response``
         1. 分析request,读取了http header，获取了http所需的一切内容。    
-        2. req.response，最重要的部分self.server.gateway(self).respond()，在这里gateway进行了构造，其中最重要的是整个http环境进行了记录。由gateway进行response。 
+        2. req.response，最重要的部分 ``self.server.gateway(self).respond()`` ，在这里gateway进行了构造，其中最重要的是整个http环境进行了记录。由gateway进行response。 
     #. 而在WSGIGateway，respond里边可以看到这个 ``self.req.server.wsgi_app(self.env, self.start_response)`` 这样一句，这个 ``wsgi_app`` 就是第4步， ``wsgi_app`` 就是在这一步返回的闭包。那个报过了日志输出的func。而核心还是application的wsgifunc。终于绕回来了。
-    #. 在application的wsgi里边，``load(env)``b将环境进行载入，将一开始add processor的几个processors，执行完了之后，执行handle()方法。在handle里边，_match确定了需要调用那个类， ``_delegate`` 真正执行了对应path的类。
+    #. 在application的wsgi里边，``load(env)`` 将环境进行载入，将一开始add processor的几个processors，执行完了之后，执行handle()方法。在handle里边，_match确定了需要调用那个类， ``_delegate`` 真正执行了对应path的类。
 
     诶, 一层一层的追溯代码的调用关系，中间经历了几次连接断掉的情况。好几次都绕在了，request的respond方法如何到了 ``application.wsgifunc`` 。http状态是如何到了application里边的，而urls mapping只在application里边。这个像是断掉的绳子，连接不起了。    
 
