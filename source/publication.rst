@@ -4,6 +4,6 @@
 
 .. toctree::
 
-   publication/alpha1
-   publication/alpha2
-
+    publication/alpha1
+    publication/alpha2
+    publication/alpha3
