@@ -260,7 +260,7 @@ webpy使用到得基本技术
     **web.py例子**
 
     .. code-block:: python
-       :lineos:
+       :linenos:
     
         import web
 
@@ -326,7 +326,7 @@ web.py的httpserver有一个比较凌乱的调用过程，是在太多凌乱了�
 --------
 
 .. code-block:: python
-   :lineos:
+   :linenos:
    
     def anna(fn):
         def new_func(*args):
