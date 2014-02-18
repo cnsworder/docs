@@ -204,7 +204,8 @@ OK，老规矩，继续贴代码。此时定义一个函数名字叫做 *topMatc
 --------
 
 .. code-block:: python
-
+   :lineos:
+   
     #!/usr/env python
     import socket
     from smtplib import *
