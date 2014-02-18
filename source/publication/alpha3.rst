@@ -213,7 +213,8 @@ webpy使用到得基本技术
 
 #. closure(闭包)
     .. code-block:: python
-
+       :linenos:
+       
         def maker(N):
             def action(x):
                 return x * N
@@ -259,6 +260,8 @@ webpy使用到得基本技术
     **web.py例子**
 
     .. code-block:: python
+       :lineos:
+    
         import web
 
         urls = ("/.*", "hello")
@@ -323,7 +326,8 @@ web.py的httpserver有一个比较凌乱的调用过程，是在太多凌乱了�
 --------
 
 .. code-block:: python
-
+   :lineos:
+   
     def anna(fn):
         def new_func(*args):
             print 'by anna args=%s' % args
