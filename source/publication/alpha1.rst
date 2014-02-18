@@ -118,7 +118,8 @@
 --------
 
 .. code-block:: bash
-
+   :lineos:
+   
     #!/usr/bin/env bash
     #获取ip更新并发送邮件
     ip_log=ip.log
