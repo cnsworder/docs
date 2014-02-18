@@ -118,7 +118,7 @@
 --------
 
 .. code-block:: bash
-   :lineos:
+   :linenos:
    
     #!/usr/bin/env bash
     #获取ip更新并发送邮件
