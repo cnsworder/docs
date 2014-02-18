@@ -70,7 +70,8 @@ now项目，包含now1.c，now1.h和now2.h，now2.c四个文件，目标是生�
 我们会编写如下
 
 .. code-block:: makefile
-
+   :linenos:
+   
     #compile configuration    
     CC=gcc   
     DEBUG=-g3   
