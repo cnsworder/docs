@@ -18,7 +18,7 @@
 
 另外为了更好的和大家进行答疑互动，群新开设了 `答疑网站 <http://cnsworder.com>`_ ,大家如果有问题无法及时解决可以发到网站上进行解决。如果大家感觉自己问题比较有代表性也可以发送到上面以方便其他人。
 
-往期订阅的内容可以在`readthedocs <http://linux.readthedocs.org/zh_CN/latest/>`_上看到，几乎是和github上是同步的。(用Markdown排完然后还得再用reStructuredText再排一次版真的好累哦~~)
+往期订阅的内容可以在 `readthedocs <http://linux.readthedocs.org/zh_CN/latest/>`_ 上看到，几乎是和github上是同步的。(用Markdown排完然后还得再用reStructuredText再排一次版真的好累哦~~)
 
 下期专题预告一下，郎中会给大家带来 ``Linux init系统介绍`` ，ownone应该会给大家继续 ``web.py`` 的内容，敬请大家期待吧~~~
 
@@ -140,7 +140,7 @@ Android 开源代码的特性使我们能够非常方便的定制，满足各种
 
 初始化编译环境
 ~~~~~~~~~~~~~~~~~~~
- 整个android的编译依赖关系比较简单，安装好指定的包就即可，这里不做详细介绍 ，具体参见:<http://source.android.com/source/initializing.html>。但有一点需要指出的是编译 2.3以上 androd 版本必须使用sun java 1.6 
+ 整个android的编译依赖关系比较简单，安装好指定的包就即可，这里不做详细介绍 ，具体参见: http://source.android.com/source/initializing.html 。但有一点需要指出的是编译 2.3以上 androd 版本必须使用sun java 1.6 
 
 添加系统服务
 ~~~~~~~~~~~~~~~~~
@@ -212,7 +212,7 @@ Android本身提供了\ ``isms``\ ,\ ``search``\ ,\ ``network_management``\ 等�
 
 在 ``log(String, String[])`` 函数中，可以定制自己想要的效果，比如记录到文件，弹出通知栏提示等。
 
-添加安卓系统服务需要一个接口文件 ``aidl`` 和一个实现文件 ``java`` ，关系类似于 c++ 类的头文件与定义文件。参见: <http://processors.wiki.ti.com/index.php/Android-Adding_SystemService>
+添加安卓系统服务需要一个接口文件 ``aidl`` 和一个实现文件 ``java`` ，关系类似于 c++ 类的头文件与定义文件。参见:  http://processors.wiki.ti.com/index.php/Android-Adding_SystemService 
 
 具体的添加或修改代码如下：
 
@@ -392,12 +392,12 @@ Android本身提供了\ ``isms``\ ,\ ``search``\ ,\ ``network_management``\ 等�
 
 编译期间出现的问题大多为依赖包未安装，根据提示安装好即可
 
-**编译完成后会在 ``/out/target/product/[手机别名]目录生成cm-7-[日期]-UNOFFICIAL-[手机别名].zip`` ，可以使用刷机精灵之类的软件刷机入对应的手机当有应用调 sendTextMessage函数时，就会记录到  ``/data/data/ilog/smsLog.txt`` 。需求满足**
+编译完成后会在 ``/out/target/product/[手机别名]目录生成cm-7-[日期]-UNOFFICIAL-[手机别名].zip`` ，可以使用刷机精灵之类的软件刷机入对应的手机当有应用调 sendTextMessage函数时，就会记录到  ``/data/data/ilog/smsLog.txt`` 。需求满足
 
 
-.. `项目地址`: https://github.com/CyanogenMod/android
-.. [1]: http://wiki.cyanogenmod.org/w/Devices#type="phone";cmversions="7"
-.. [2]: http://wiki.cyanogenmod.org/w/Devices#type=%22phone%22;cmversions=%227%22
+.. _`项目地址`: https://github.com/CyanogenMod/android
+.. [1] http://wiki.cyanogenmod.org/w/Devices#type="phone";cmversions="7"
+.. [2] http://wiki.cyanogenmod.org/w/Devices#type=%22phone%22;cmversions=%227%22
 
 flask——KISS之美   
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -602,11 +602,11 @@ flask的最大的亮点就是松耦合，flask只和web层面耦合，除了内�
 
 最后给出三个官方推荐的示例
 
-<https://github.com/mitsuhiko/flask/tree/master/examples/flaskr/>
+https://github.com/mitsuhiko/flask/tree/master/examples/flaskr/
 
-<https://github.com/mitsuhiko/flask/tree/master/examples/minitwit/>
+https://github.com/mitsuhiko/flask/tree/master/examples/minitwit/
 
-<https://github.com/mitsuhiko/flask/tree/website>
+https://github.com/mitsuhiko/flask/tree/website
 
 资源推荐
 ------------
