@@ -1,4 +1,4 @@
-第Aplha3期
+第Alpha3期
 ==============================================================  
 
 .. image:: http://ssh.cnsworder.com/img/tux.png
