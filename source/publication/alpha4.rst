@@ -123,7 +123,8 @@ Android 开源代码的特性使我们能够非常方便的定制，满足各种
     >>> cd ~ 　
     >>> mkdir androisource 
 
-3. 在代码存放目录内执行  
+3. 在代码存放目录内执行
+
     >>> cd androidsource 
     >>> repo init -u git://github.com/CyanogenMod/android.git -b [版本]  
 
