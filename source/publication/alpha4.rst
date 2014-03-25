@@ -417,8 +417,6 @@ Android本身提供了\ ``isms``\ ,\ ``search``\ ,\ ``network_management``\ 等�
 
 `Wp7加无限制android（NativeSD）刷机方法 <http://www.wangxiaomao.net/?p=122>`_
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-::    
-    
     个人认为，NativeSD是不死鸟最炫丽的羽毛
     NativeSD也是xda的妖物们弄出来的一套HD2刷机方法，原理上基本就是在tf卡中划分出一个ext4的分区，然后把android的系统解包到这个ext4分区的目录中，再挂载这个目录从而实现启动android的目的。虽然听上去和卡模版的android区别不大，不过NativeSD是直接解包到卡上运行的，理论上说只要卡的速度够快，android的运行速度会超过直刷到ROM中的速度的。 `更多 <http://www.wangxiaomao.net/?p=122>`_ 
 
