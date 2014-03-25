@@ -450,7 +450,7 @@ Android本身提供了\ ``isms``\ ,\ ``search``\ ,\ ``network_management``\ 等�
 
 `Legend：刷RUU <http://www.wangxiaomao.net/?p=20>`_
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
-    RUU，是ROM Upgrade Utility英文缩写，意思是ROM升级工具包(即ROM更新实用程序)，它一般由HTC官方发布，在电脑端简单快速地升级手机固件(ROM)的套件。即所谓的官方ROM，官方到不能再官方的ROM。 `更多 http://www.wangxiaomao.net/?p=20>`_
+    RUU，是ROM Upgrade Utility英文缩写，意思是ROM升级工具包(即ROM更新实用程序)，它一般由HTC官方发布，在电脑端简单快速地升级手机固件(ROM)的套件。即所谓的官方ROM，官方到不能再官方的ROM。 `更多 <http://www.wangxiaomao.net/?p=20>`_
 
 `Legend：从RUU中提取ROM <http://www.wangxiaomao.net/?p=24>`_
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
