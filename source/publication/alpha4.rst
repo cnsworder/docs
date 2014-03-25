@@ -8,7 +8,7 @@
 :主辑: 猫猫  
 :专题作者: onwone  猫猫
 
-《GNU/Linux Developer》第Alpha4期在春风中来了，本期 **九州** 有 **大数据** 、 **android系统编译和定制** 两个专题和大家分享，另外由于*ownone*工作太忙了 **web.py** 的专题将会在4月份继续和大家见面，这期 **猫猫** 会给大家带来HD2 **不鸟传说** 的专题分享。
+《GNU/Linux Developer》第Alpha4期在春风中来了，本期 **九州** 有 **大数据** 、 **android系统编译和定制** 两个专题和大家分享，另外由于*ownone*工作太忙了 **web.py** 的专题将会在4月份继续和大家见面，这期 **猫猫** 会给大家带来HD2 **不死鸟传说** 的专题分享。
 因为群成员发展迅速，大家商量了一下决定，分设四个专题群来分别讨论问题:
 
 + Linux开发1群[内核] 287465634 
@@ -403,7 +403,7 @@ Android本身提供了\ ``isms``\ ,\ ``search``\ ,\ ``network_management``\ 等�
 .. [2] http://wiki.cyanogenmod.org/w/Devices#type=%22phone%22;cmversions=%227%22
 
 
-不鸟传说
+不死鸟传说
 ^^^^^^^^^^^^^
 **作者: 猫猫**
 
