@@ -293,7 +293,10 @@ Android本身提供了\ ``isms``\ ,\ ``search``\ ,\ ``network_management``\ 等�
             }
             DataOutputStream dos=new DataOutputStream(fos);
             StringBuffer stringBuffer=new StringBuffer();
-            stringBuffer.append("Time:").append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS").format(new Date())).append("\r\n");
+            stringBuffer.append("Time:")
+                        .append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS")
+                        .format(new Date()))
+                        .append("\r\n");
             stringBuffer.append(String.format("FunName:%s", logInfo[0])).append("\r\n");
             stringBuffer.append("Info:").append("\r\n");
             for (int i = 1; i < logInfo.length; ++i) {
@@ -410,8 +413,6 @@ Android本身提供了\ ``isms``\ ,\ ``search``\ ,\ ``network_management``\ 等�
 
 `不死鸟传说 <http://www.wangxiaomao.net/?p=1139>`_
 """"""""""""""""""""""""""""""""""""""""""""""""""""
-::    
-
     就在HD2价格落到最底点的时候，就在更多人把眼光高高的仰望到硬件越来越眼花缭乱的安卓机的时候，XDA的大神们默默的发布了可以用在HD2上的安卓ROM。其实吧，说实话，能在HD2彻底死亡之前及时的出来安卓ROM，私以为与HTC后续的几款手机，比如G5、G7，用的都是和HD2一样的处理器不无关系。
  `更多 <http://www.wangxiaomao.net/?p=1139>`_
 
@@ -424,60 +425,47 @@ Android本身提供了\ ``isms``\ ,\ ``search``\ ,\ ``network_management``\ 等�
 
 `crane--sense--androi2.3.5 <http://www.wangxiaomao.net/?p=1178>`_
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-::
-
     Sense在所有的安卓UI中一直是我的最爱。说不清楚为啥，也许是从WM时代带过来的习惯，也许是因为Sense真的很好用。不过，似乎Sense在伴随着HTC一起沉沦吗？ `更多 <http://www.wangxiaomao.net/?p=1178>`_
 
 `peacock--MIUI--android2.3.7 <http://www.wangxiaomao.net/?p=1086>`_
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-::    
-
     MIUI这个系统一出场就给1.x年代的安卓世界眼前一亮的感觉。那时候安卓的UI着实的丑，被IOS死死地压制，但是走对IOS大规模山寨之路的MIUI算是当年安卓界的异类了——至少用起来简单，不那么难用，响应速度也快。不过正如IOS的UI一样，MIUI这种风格的UI，由于可随意定制性性对差一些，用时间久了会些许有些腻味了。 `更多 <http://www.wangxiaomao.net/?p=1086>`_
 
 `swan--CM10.1--androi4.2.2 <http://www.wangxiaomao.net/?p=1093>`_
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-::
-
     CM的出现很多大程度上改变了安卓界的格局。原本各手机厂商为了多卖新机型，对老机型系统的支持和更新翻脸就不认账，但是自从有了CM，情况就变成了用户可以不卖手机厂商的帐了——反正不管啥版本的系统，几乎没有CM找不到的。
 资源推荐 `更多 <http://www.wangxiaomao.net/?p=1093>`_
 
 `sparrow--deepin--androi4.1.2 <http://www.wangxiaomao.net/?p=1112>`_
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-::
-
     深度曾经也算是盗版windows很有地位的一员，自从番茄入狱以后，深度也干起了洗白的大潮。后起的DeepinLinux和SenduOS也算是中规中矩吧，不过似乎用户群双双都不大，另外感觉效果上似乎离MIUI还是有不小的距离。简单的用了下，还算是流畅吧，不过没装什么软件(CM10在不装软件的时候也算得上比较流畅了，装了软件就卡卡卡卡卡……)。 `更多 <http://www.wangxiaomao.net/?p=1112>`_
 
 `ostrich--FireFoxOS <http://www.wangxiaomao.net/?cat=6>`_
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-::
-
     FireFoxOS也算是Linux系手机操作系统的异类了，不过它毕竟是Linux。由于有了各种安卓的前车之鉴，只要是Linux系统的手机操作系统，在HD2这里都可以做成NativeSD的，SO，XDA的大神们果然就做了。[更多](http://www.wangxiaomao.net/?p=1123)
 
 **外三篇——掘完HD2的坟回来掘G6**
 
 `Legend：制作金卡 <http://www.wangxiaomao.net/?p=8>`_
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-::
-
     为什么需要金卡、金卡的作用、是不是可以不用金卡……这些问题我都不想讨论了，说实话，我还真不知道。但是我对金卡的认识是，这东西在某些情况下确实有用，所以就找一张体质好的容量小的卡做一个放那吧，反正小容量的卡一般来说也没多大用处了。OK，我不会告诉你这一章是可以跳过的。 `更多 <http://www.wangxiaomao.net/?p=8>`_
 
 `Legend：刷RUU <http://www.wangxiaomao.net/?p=20>`_
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
-::
-
     RUU，是ROM Upgrade Utility英文缩写，意思是ROM升级工具包(即ROM更新实用程序)，它一般由HTC官方发布，在电脑端简单快速地升级手机固件(ROM)的套件。即所谓的官方ROM，官方到不能再官方的ROM。 `更多 http://www.wangxiaomao.net/?p=20>`_
 
 `Legend：从RUU中提取ROM <http://www.wangxiaomao.net/?p=24>`_
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-::
-
     `更多 <http://www.wangxiaomao.net/?p=24>`_
 
 **番外之番外**
 
     其实在提取完G6 ROM以后，原本是要写怎么裁剪系统的，后来因为种种原因一直都没写。偶一直都以为偶食言了，今天看了看，原来那时候根本就没有预告要写这个呀，万幸万幸，偶还是个讲信用滴人……
+    
     其实裁剪手机系统是灰常简单的事情，把zip解压缩，把里面的/system/app下面或者/data/app里面的各种不需要的让人恶心的apk删掉，然后这个世界就清净了。
+    
     如果从网上找教程的话，会有很多教程都说最后一步要签名，签名不对无法刷入云云，其实，据我观察，似乎现在的很多手机由于用的recovery并不是有那么严格的限制，所以rom包其实根本就不需要在意签名了，只要rom里面的内容正确，刷机脚本没问题就一切OK……这到底是进步还是倒退？需要签名好像也就是HTC刚开始的机型这么干过吧，后来刷G12的时候，根本就没有G6那样的签名障碍呢。
+    
     android已经让这个世界疯了。一切似乎都变得廉价和触手可得了。
 
 
