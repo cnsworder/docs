@@ -5,7 +5,7 @@
 :微信号: linux_developer  
 :主辑: 猫猫  
 
-《GNU/Linux Developer》第**Aplha5**期和大家见面了，本期 *郎中* 将为大家带来专题 **Linux init系统介绍** 和 **flask--kiss之美**, *ownone* 继续 **web.py** 之旅 。  
+《GNU/Linux Developer》第 **Aplha5** 期和大家见面了，本期 *郎中* 将为大家带来专题 **Linux init系统介绍** 和 **flask--kiss之美**, *ownone* 继续 **web.py** 之旅 。  
 
 
 本期专题：Linux init系统介绍
@@ -600,15 +600,20 @@ https://github.com/mitsuhiko/flask/tree/website
 
 资源推荐
 ------------
-coolshell_    陈皓哥为大家推荐的技术文档，内容很丰富。
+
+|coolshell|_    陈皓哥为大家推荐的技术文档，内容很丰富。
 
 ios_ : 美女程序员吴茜的大作，分析iOS数据窃取与防范的好文章。 
 
 android_ : 美女的另一大作，介绍android安全机制SEAndroid。
 
-.. _coolshell: http://coolshell.cn "酷壳"
-.. _ios: http://blog.csdn.net/column/details/hackingios.html "iOS安全功放"
-.. _android: http://blog.csdn.net/yiyaaixuexi/article/category/1302842 "Android安全攻防"
+.. |coolshell| replace:: 酷壳
+.. |ios| replace:: iOS安全攻防
+.. |android| replace:: Android安全攻防
+
+.. _coolshell: http://coolshell.cn 
+.. _ios: http://blog.csdn.net/column/details/hackingios.html 
+.. _android: http://blog.csdn.net/yiyaaixuexi/article/category/1302842 
 
 code block
 ------------
@@ -621,7 +626,9 @@ code block
    print ''.join(dict(zip(a, b)).get(c) for c in s)
    #处理批量代换大代码
 
+Tip
 -------
+
 开发
 ^^^^^
    python的编码问题是一个老大难的问题，所以提议
