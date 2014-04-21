@@ -1,409 +1,389 @@
-第Alpha4期
+第Alpha5期
 ==============================================================  
-
-.. image:: http://ssh.cnsworder.com/img/tux.png
 
 :QQ群号: 20506135 
 :微信号: linux_developer  
 :主辑: 猫猫  
-:专题作者: onwone  江湖郎中
 
-《GNU/Linux Developer》第Alpha4期在春风中来了，本期 **九州** 有 **大数据** 、 **android系统编译和定制** 两个专题和大家分享，另外由于*ownone*工作太忙了**web.py**的专题将会在4月份继续和大家见面，这期 **江湖郎中** 会给大家带来 **flask** 的专题分享。
-因为群成员发展迅速，大家商量了一下决定，分设四个专题群来分别讨论问题:
-
-+ Linux开发1群[内核] 287465634 
-+ Linux开发2群[服务] 20506196
-+ Linux开发3群[应用] 19443596
-+ Linux开发4群[基础] 48619264     
-
-另外为了更好的和大家进行答疑互动，群新开设了 `答疑网站 <http://cnsworder.com>`_ ,大家如果有问题无法及时解决可以发到网站上进行解决。如果大家感觉自己问题比较有代表性也可以发送到上面以方便其他人。
-
-往期订阅的内容可以在 `readthedocs <http://linux.readthedocs.org/zh_CN/latest/>`_ 上看到，几乎是和github上是同步的。(用Markdown排完然后还得再用reStructuredText再排一次版真的好累哦~~)
-
-下期专题预告一下，郎中会给大家带来 ``Linux init系统介绍`` ，ownone应该会给大家继续 ``web.py`` 的内容，敬请大家期待吧~~~
-
-哦，忘了还有另外的惊喜哦，暂时保密吧 :p    
-
-专题分享
----------------------
-
-说来惭愧，郎中让我做此次专题并非我的水平有过人之处————菜鸟一枚，只是机缘巧合。说好的 **《大数据》** 内容因为才疏学浅加上公司事务占据太多时间，在此次专题中只做介绍性描述，以免贻笑大方.作为补充,此次专题会详细介绍 **《安卓系统编译和定制》** 内容。废话不多说，直入正题。
-
-大数据
-^^^^^^^^^^^^^^
-**作者: 九州**
-
-要理解大数据这一概念，首先要从”大”入手，”大”是指数据规模，大数据一般指在10TB(1TB=1024GB)规模以上的数据量。大数据同过去的海量数据有所区别，其基本特征为 **体量大、多样性、价值密度低、速度快** 。
-
-大数据特点
-""""""""""""""
-+ 数据体量巨大。从TB级别，跃升到PB级别。
-+ 数据类型繁多，如网络日志、视频、图片、地理位置信息，等等。
-+ 价值密度低。以视频为例，连续不间断监控过程中，可能有用的数据仅仅有一两秒。
-+ 处理速度快。1秒定律。最后这一点也是和传统的数据挖掘技术有着本质的不同。物联网、云计算、移动互联网、车联网、手机、平板电脑、PC以及遍布地球各个角落的各种各样的传感器，无一不是数据来源或者承载的方式。
+《GNU/Linux Developer》第**Aplha5**期和大家见面了，本期*我*将为大家带来专题**Linux init系统介绍**。  
 
 
-大数据处理
-"""""""""""""""
-大数据技术是指从各种各样类型的巨量数据中，快速获得有价值信息的技术。解决大数据问题的核心是大数据技术。目前所说的”大数据”不仅指数据本身的规模，也包括采集数据的工具、平台和数据分析系统。大数据研发目的是发展大数据技术并将其应用到相关领域，通过解决巨量数据处理问题促进其突破性发展。因此，大数据时代带来的挑战不仅体现在如何处理巨量数据从中获取有价值的信息，也体现在如何加强大数据技术研发，抢占时代发展的前沿。
+本期专题：Linux init系统介绍
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**作者：江湖郎中**  
 
-下面来介绍一下通用的大数据处理流程。
+我手上的版本有archlinux、fedora20、debian7、centos6我主要以以上这些版本为例来描述，BSD init以上版本默认都没有了，所以无法验证，描述很可能有漏洞。其中archlinux、fedora20使用systemd，debian7使用system V init，centOS6使用upstart。 
 
-1. 采集
-~~~~~~~~~~~
+在谈init之前先说一下linux kernel的启动过程，在PC上和arm嵌入式开发板上会有所不同。
 
-大数据的采集是指利用多个数据库来接收发自客户端（Web、App或者传感器形式等）的数据，并且用户可以通过这些数据库来进行简单的查询和处理工作。比如，电商会使用传统的关系型数据库`MySQL`和`Oracle`等来存储每一笔事务数据，除此之外，`Redis`和`MongoDB`这样的`NoSQL`数据库也常用于数据的采集
+系统启动
+"""""""""""""""""
 
-在大数据的采集过程中，其主要特点和挑战是并发数高，因为同时有可能会有成千上万的用户来进行访问和操作，比如火车票售票网站和淘宝，它们并发的访问量在峰值时达到上百万，所以需要在采集端部署大量数据库才能支撑。并且如何在这些数据库之间进行负载均衡和分片的确是需要深入的思考和设计。
++ PC
+设备在上电以后会在指定的位置来运行某段代码，这个位置`0xFFFF0`就是固化在主板上的BIOS（现在是UEFI了），BOIS自检后会从磁盘的某个位置加载程序，如果mbr分区会运行位于磁盘0道0柱1扇区上512字节的mbr程序，mbr程序会通过446+1字节的位置读取64字节的分区表，并在boot标志的分区上加载bootload，一般会使grub、lilo。UEFI引导的情况下，UEFI会直接到GPT分区的fat文件系统下找到efi的引导文件并加载，这个文件会加载grub或者其他引导（lilo是否支持有待验证）。grub本身是一个缩减版的内核，grub本身会包含stage1,stage1.5，stage2 三步。它通过kernel指令加载kernel(grub2是linux指令) vmlinuz文件并传递给内核启动参数，通过initrd指令加载ram disk文件，然后内核就被加载进内存中运行了。
+efi启动模式下的boot目录如下图：  
 
-2. 导入/预处理
-~~~~~~~~~~~~~~~
+.. image:: http://docs.cnsworder.com/publication/image/boot_2.png
 
-虽然采集端本身会有很多数据库，但是如果要对这些海量数据进行有效的分析，还是应该将这些来自前端的数据导入到一个集中的大型分布式数据库，或者分布式存储集群，并且可以在导入基础上做一些简单的清洗和预处理工作。也有一些用户会在导入时使用来自Twitter的Storm来对数据进行流式计算，来满足部分业务的实时计算需求。
+bios启动模式下的boot目录如下图：  
 
-导入与预处理过程的特点和挑战主要是导入的数据量大，每秒钟的导入量经常会达到百兆，甚至千兆级别。
+.. image:: http://docs.cnsworder.com/publication/image/boot_5.png 
 
-3. 统计/分析
-~~~~~~~~~~~~~~
+vimlinuz-linux是kernel指令加载的kernel文件，initramfs-linux.publication/image是initrd指令加载的ramfs文件。
+efi目录如下图：  
 
-统计与分析主要利用分布式数据库，或者分布式计算集群来对存储于其内的海量数据进行普通的分析和分类汇总等，以满足大多数常见的分析需求，在这方面，一些实时性需求会用到EMC的GreenPlum、Oracle的Exadata，以及基于MySQL的列式存储Infobright等，而一些批处理，或者基于半结构化数据的需求可以使用Hadoop。
+.. image:: http://docs.cnsworder.com/publication/image/boot_3.png
 
-统计与分析这部分的主要特点和挑战是分析涉及的数据量大，其对系统资源，特别是I/O会有极大的占用。
+efi目录是挂载的一个fat文件系统的分区。包括了可以被UEFI加载的多个efi文件。
+grub加载的配置如下图:  
 
-4. 挖掘
-~~~~~~~~~~~~~~
+.. image:: http://docs.cnsworder.com/publication/image/boot_4.png
 
-与前面统计和分析过程不同的是，数据挖掘一般没有什么预先设定好的主题，主要是在现有数据上面进行基于各种算法的计算，从而起到预测（Predict）的效果，从而实现一些高级别数据分析的需求。比较典型算法有用于聚类的Kmeans、用于统计学习的SVM和用于分类的NaiveBayes，主要使用的工具有Hadoop的Mahout等。该过程的特点和挑战主要是用于挖掘的算法很复杂，并且计算涉及的数据量和计算量都很大，常用数据挖掘算法都以单线程为主。
++ 开发板
+开发板上电后会从norflash或者nandflash上的某个位置来读取bootload，然后由bootload加载内核到内存，内核直接开始运行。在3.0以后的arm linux上kernel会从flash的某个位置读取LDS来加载板载资源的配置信息。  
 
-整个大数据处理的普遍流程至少应该满足这四个方面的步骤，才能算得上是一个比较完整的大数据处理。
+在内核初始化完成后，需要和根文件系统建立关联，pc版的kernel会借助initrd来做桥梁加载根文件系统，而armlinux则直接根据配置加载跟文件系统。  
 
+早期init 系统简介
+""""""""""""""""""""""""""
 
-大数据作用
-""""""""""""
+在内核所有的操作完成以后就会从根文件系统中加载地一个要执行的程序，他是所有程序的父进程，也是我们今天的主角 **init**。恩，前面的废话太多了，现在才进入正题...
 
-1. 营销
-营销的本质是找出潜在顾客，向其发布信息，最终达成交易。
-收集海量的消费者信息，然后利用大数据建模技术，按消费者属性（如所在地区、性别）和兴趣、购买行为等维度，挖掘目标消费者，然后进行分类，再根据这些，对个体消费者进行营销信息推送。目前概念火热的精准营销就是如此
-2. 内部运营
-相比营销，大数据在内部运营中的应用更深入，对于企业内部的信息化水平，以及数据采集和分析能力的要求更高。本质上，是将企业外部海量消费者数据与企业内部海量运营数据联系起来，在分析中得到新的洞察，提升运营效率。
-3. 大数据用于决策
-在大数据时代，企业面对众多新的数据源和海量数据，能否基于对这些数据的洞察，进行决策，进而将其变成一项企业竞争优势的来源？同大数据营销和大数据内部运营相比，运用大数据决策难度最高，因为它需要一种依赖数据的思维习惯。
+init的历史很久远，早期Linux使用的init有两个版本：`sysV`和`BSD`。现在他们仍旧没有完全被废弃，现在还有不少发行版本采用这两个系统比如dibian还采用system V init,archlinux在20jenk12年前后才放弃BSD init切换到systemd。废话不多说，分别描述一下。
 
-安卓编译定制初步
---------------------------------
-**作者: 九州**
++ BSD
+       - 使用/etc目录下以rc.x作为文件名的文件来描述init的操作
+       - rc.sysinit
+       - rc.single单用户执行
+       - rc.multi2～5执行
+       - rc.local是杂项
+       - init系统会按照以上顺序加载运行
+       - rc.conf包含了相关的配置
 
-Android 开源代码的特性使我们能够非常方便的定制，满足各种不同的需要。下面介绍怎么编译、定制android 代码满足个人需要。
++ system V
+       - 脚本文件目录在`/etc/init.d/`
+       - `/etc/rc{runlevel}.d`目录标识相应运行级别的目录
+       - 目录下的文件以S开头的是启动的服务，以K开头的是不启动的服务
+       - 启动标识后紧跟的数字表示启动优先级，数值越小运行越早
+       - 通过service命令来起停服务
+       - 通过chkconf来管理服务
+       - 通过`/etc/inittab`文件来配置相应的运行级别
 
-确定需求
-""""""""""""""
-
-恶意应用在后台悄悄发送、屏蔽短信订购SP业务已成为安卓一大危害， 而需求在此产生——我希望手机系统能够详细记录: **手机内哪个应用在什么时候向谁发送了什么内容的短信**，简称`4W`信息
-
-
-初步设计
-"""""""""""""
-
-恶意应用一般使用 ``sendTextMessage`` 函数后台发送短信，那么解决方案看起来很直接——在函数实现内插桩，桩代码将函数调用信息输出到 ``Log`` 。那么，查看 ``Log`` 文件自然就知道短信的`4W`信息。
-
-实践操作
-"""""""""""""
-
-下载源代码
-~~~~~~~~~~~~~~~~~
-
-直接使用Google提供的源代码有个问题就是编译出来的系统只适用于特定的几款手机。所以这里使用 ``CyanogenMod`` 项目代码。可以简单认为 ``CyanogenMod`` 是在Goole原生代码基础上适配了更多的手机机型。`项目地址`_
-
-**下载源代码的过程**
-
-1. 下载并添加 repo 文件到用户环境变量。  
-    https://code.google.com/p/git-repo/downloads/list?can=1&q=
-
-2. 建立代码存放目录
-    >>> cd ~ 　
-    >>> mkdir androisource 
-
-3. 在代码存放目录内执行  
-    >>> cd androidsource 
-    >>> repo init -u git://github.com/CyanogenMod/android.git -b [版本]  
-
-    以“gingerbread-release”（对应android2.3.7 ) 版本为例完整命令格式为:
-
-    >>> repo init -u git://github.com/CyanogenMod/android.git -b gingerbread-release  
-
-4. 初始化完成后执行下载源代码
-    >>> repo sync
-    或
-    >>> repo sync -j [n]
-
-区别在于前者使用单进程，后者使用了 n 进程下载。
-
-初始化编译环境
-~~~~~~~~~~~~~~~~~~~
- 整个android的编译依赖关系比较简单，安装好指定的包就即可，这里不做详细介绍 ，具体参见: http://source.android.com/source/initializing.html 。但有一点需要指出的是编译 2.3以上 androd 版本必须使用sun java 1.6 
-
-添加系统服务
-~~~~~~~~~~~~~~~~~
-虽然在 “\ **初步设计**\ ”中我们描述的方案是桩代码直接记录信息到 *log* 文件，但此设计不便于扩展，在实践中我们采用系统服务代理模式。
-
-Android本身提供了\ ``isms``\ ,\ ``search``\ ,\ ``network_management``\ 等系统服务实现不同的功能。\ ``sendTextMessage``\ 函数实际上就是使用\ ``isms``\ 服务发送短信。
-
-.. code-block:: java
-   :linenos:
-    
-    //frameworks/base/telephony/java/android/telephony/SmsManager.java
-        
-    public void sendTextMessage(
-            String destinationAddress, String scAddress, String text,
-            PendingIntent sentIntent, PendingIntent deliveryIntent) {
-        if (TextUtils.isEmpty(destinationAddress)) {
-            throw new IllegalArgumentException("Invalid destinationAddress");
-        }
-        if (TextUtils.isEmpty(text)) {
-            throw new IllegalArgumentException("Invalid message body");
-        }
-        try {
-            ISms iccISms = ISms.Stub.asInterface(ServiceManager.getService("isms"));
-            if (iccISms != null) {
-                iccISms.sendText(destinationAddress, scAddress, text, sentIntent, deliveryIntent); 
-            }
-        } 
-        catch (RemoteException ex) {
-            // ignore it
-        }
-    }
-
-借鉴于此，我们可以自定义一个 ``ilog`` 系统服务 ，并在 ``sendTextMessag`` 函数内插桩 ，代码如下：
-
-.. code-block:: java
-   :linenos:
-       
-    public void sendTextMessage(
-             String destinationAddress, String scAddress, String text,
-             PendingIntent sentIntent, PendingIntent deliveryIntent) {
-        if (TextUtils.isEmpty(destinationAddress)) {
-            throw new IllegalArgumentException("Invalid destinationAddress");
-        }
-        if (TextUtils.isEmpty(text)) {
-            throw new IllegalArgumentException("Invalid message body");
-        }
-        try {
-            ILog ilog = ILog.Stub.asInterface(ServiceManager.getService("ilog"));
-            if (ilog != null) {
-                String[] logInfo=new String[3];
-                logInfo[0]=destinationAddress;
-                logInfo[1]=scAddress;
-                logInfo[2]=text;
-                ilog.log("sendTextMessage", logInfo);
-            }
-         } 
-        catch (RemoteException ex) {
-             // ignore it
-        }
-        try {
-            ISms iccISms = ISms.Stub.asInterface(ServiceManager.getService("isms"));
-            if (iccISms != null) {
-                iccISms.sendText(destinationAddress, scAddress, text, sentIntent, deliveryIntent);
-            }
-        } catch (RemoteException ex) {
-             // ignore it
-        }
-    }
-
-在 ``log(String, String[])`` 函数中，可以定制自己想要的效果，比如记录到文件，弹出通知栏提示等。
-
-添加安卓系统服务需要一个接口文件 ``aidl`` 和一个实现文件 ``java`` ，关系类似于 c++ 类的头文件与定义文件。参见:  http://processors.wiki.ti.com/index.php/Android-Adding_SystemService 
-
-具体的添加或修改代码如下：
-
-**frameworks/base/core/java/android/os/ILog.aidl**
-
-.. code-block:: java
-   :linenos:
-    
-    /*
-    * aidl file : frameworks/base/core/java/android/os/ILog.aidl
-    * This file contains definitions of functions which are exposed by service 
-    */
-    package android.os;
-    interface ILog {
-        /**
-        * {@hide}
-        */
-        void log(String function ,in String[] logInfo);
-    }    
- 
-**frameworks/base/services/java/com/android/server/LogService.java**
-
-.. code-block:: java
-   :linenos:
-    
-    package com.android.server;
-    import android.app.ActivityManager;
-    import android.content.Context;
-    import android.content.pm.PackageManager;
-    import android.os.*;
-    import android.os.ILog;
-    import java.io.*;
-    import java.text.SimpleDateFormat;
-    import java.util.Date;
-    import java.util.List;
-    
-    public class LogService extends ILog.Stub {
-    
-        public LogService(Context context) {
-            super();
-            mContext = context;
-        }
-        
-        //获取调用该服务的应用包名
-        private String getPackageName(int pid, int uid) {
-            PackageManager mPkgMgr = mContext.getPackageManager();
-            String[] pkgs = new String[0];
-            if (mPkgMgr != null) {
-                pkgs = mPkgMgr.getPackagesForUid(uid);
-            }
-            if (pkgs != null && pkgs.length == 1) {
-                return pkgs[0];
-            }
-            ActivityManager am = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
-            List<ActivityManager.RunningAppProcessInfo> apps = am.getRunningAppProcesses();
-            if (apps != null) {
-                for (ActivityManager.RunningAppProcessInfo info : apps) {
-                   if (info.pid == pid) {
-                        return info.processName;
-                    }
-                }
-            }
-            return "unknown";
-        }
-    
-        //将信息写入文件
-        private int writeToFile(String funciton ,String[] logInfo ,String packageName) {
-            File ilogWorkDir = mContext.getDir("/data/data/ilog", 0);
-            if (!ilogWorkDir.exists()) {
-               ilogWorkDir.mkdir();
-            }
-            File ilogOutFile = new File("/data/data/ilog", "smsLog.txt");
-            FileOutputStream fos = null;
-            try {
-                fos = new FileOutputStream(ilogOutFile, true);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            DataOutputStream dos=new DataOutputStream(fos);
-            StringBuffer stringBuffer=new StringBuffer();
-            stringBuffer.append("Time:").append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS").format(new Date())).append("\r\n");
-            stringBuffer.append(String.format("FunName:%s", logInfo[0])).append("\r\n");
-            stringBuffer.append("Info:").append("\r\n");
-            for (int i = 1; i < logInfo.length; ++i) {
-               stringBuffer.append("    ").append(logInfo[i]).append("\r\n");
-            }
-            stringBuffer.append("\r\n\r\n");
-            try {
-               dos.write(stringBuffer.toString().getBytes());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return 0;
-        }
-        
-        public void log(String function, String info[]) {
-            String packageName = null;
-                packageName = getPackageName(Binder.getCallingPid(), Binder.getCallingUid());
-                writeToFile(function ,info,packageName);
-            }
-        
-        final private Context mContext;
-    }  
-
-**frameworks/base/services/java/com/android/server/SystemServer.java**
-
-.. code-block:: java
-   :linenos:
-    
-    /*
-     * go to function "@Override public void run()"
-    * ........ 
-    * Add following block after line "if (factoryTest != SystemServer.FACTORY_TEST_LOW_LEVEL) " 
-    */ 
-    try {
-        Slog.i(TAG, "ilog");
-        ServiceManager.addService("ilog", new LogService(context));
-    } catch (Throwable e) { 
-        Slog.e(TAG, "Failure starting LogService Service", e);
-    } 
-     
-**frameworks/base/Android.mk**
-
-.. code-block:: makefile
-   :linenos:
-    
-    /*
-     * open frameworks/base/Android.mk and add following line
-     */
-    ...
-    core/java/android/os/IPowerManager.aidl \
-    core/java/android/os/ILog.aidl \
-    core/java/android/os/IRemoteCallback.aidl \
-    ...
- 
-编译
-"""""""""""
-``CyanogenMod gingerbread-release`` 版本适配了60多款手机 [1]_ [2]_。
-
-为官方支持的手机编译出ROM比较简单，命令格式如下：
+以上两种init系统加载的文件本身都是一些脚本文件，通过这些脚本可以加载相应的模块或者启动需要的程序。 
+BSD init 具体服务的内容:
 
 .. code-block:: bash
 
-    cd device/[厂商］/[手机别名]
-    ./extract-files.sh
-    ./setup-makefiles.sh
-    cd ../../..
-    
-    cd vendor/cyanogen
-    ./get-rommanager
-    cd ../..
-    
-    source ./build/envsetup.sh
-    lunch cyanogen_[手机别名]-eng
-    make clean
-    brunch [手机别名]
+#!/bin/sh
+. /etc/rc.subr
+name="dummy"
+start_cmd="${name}_start"
+stop_cmd=":"
+
+dummy_start()
+{
+    echo "Nothing started."
+}
+
+load_rc_config $name
+run_rc_command "$1"
 
 
-以我手上的测试机`htc G9`(别名 liberty)为例：
+SystemV init具体服务的配置内容：
+
+.. code-block:: bash
+  
+  #! /bin/sh
+
+  ### BEGIN INIT INFO
+  # Provides:          sudo
+  # Required-Start:    $local_fs $remote_fs
+  # Required-Stop:
+  # X-Start-Before:    rmnologin
+  # Default-Start:     2 3 4 5
+  # Default-Stop:
+  # Short-Description: Provide limited super user privileges to specific users
+  # Description: Provide limited super user privileges to specific users.
+  ### END INIT INFO
+
+  N=/etc/init.d/sudo
+
+  set -e
+
+  case "$1" in
+    start)
+          # make sure privileges don't persist across reboots
+          if [ -d /var/lib/sudo ]
+          then
+                  find /var/lib/sudo -exec touch -t 198501010000 '{}' \;
+          fi
+          ;;
+    stop|reload|restart|force-reload|status)
+          ;;
+    *)
+          echo "Usage: $N {start|stop|restart|force-reload|status}" >&2
+          exit 1
+          ;;
+  esac
+
+  exit 0
+
+
+从语法角度来看两者没有什么区别。
+
+早期的init系统存在若干问题，比如，无法并行任务，任务之间缺乏有效的通信机制，对进程的监控只能通过PID来进行...
+
+现代init系统简介
+"""""""""""""""""""""""""""
+
+systemd和upstart在这种情况下产生了，他们都是事件驱动的，不得不说的是由于systemd开始时间晚于upstart所以很多特性也借鉴了upstart，同时systemd还借鉴了Mac OS X的Launcher系统。
+
++ systemd  
+>  systemd 是 Linux 下的一款系统和服务管理器，兼容 SysV 和 LSB 的启动脚本。systemd 的特性有：支持并行化任务；同时采用 socket 式与 D-Bus 总线式激活服务；按需启动守护进程（daemon）；利用 Linux 的 cgroups 监视进程；支持快照和系统恢复；维护挂载点和自动挂载点；各服务间基于依赖关系进行精密控制。  
+                  --维基百科
+
+systemctl来管理systemd，同时也兼容service命令
+所有的systemd配置在 ``/usr/lib/systemd`` 目录下,当启动用后会被链接或者拷贝到/etc/systemd目录下
+
++ upstart
+  - 使用initctl来管理upstart
+  - 配置项在 ``/etc/init/`` 目录下
+  - ubuntu中在 ``/etc/rc.conf`` 的最后一行通过 ``exec /etc/init.d/rc $RUNLEVEL`` 来启动相应级别系统，debina中是在 ``/etc/inittab``中添加 ``id:2:initdefault:``
+
+  *我印象中ubuntu的upstart的配置和centos的配置方法是有区别的，这里无法进一步验证。*
+
+
+systemd和upstart的使用
+""""""""""""""""""""""""""""""""
+
+先分别上一段代码,sytemd：
+
+.. code-block:: conf
+
+  [Unit]
+  Description=OpenSSH Daemon
+  Wants=sshdgenkeys.service
+  After=sshdgenkeys.service
+  After=network.target
+
+  [Service]
+  ExecStart=/usr/bin/sshd -D
+  ExecReload=/bin/kill -HUP $MAINPID
+  KillMode=process
+  Restart=always
+
+  [Install]
+  WantedBy=multi-user.target
+
+
+upstart:
 
 .. code-block:: bash
 
-    cd device/htc/liberty
-    ./extract-files.sh
-    ./setup-makefiles.sh
-    cd ../../..
+  start on fedora.serial-console-available DEV=* and stopped rc RUNLEVEL=[2345]
+  stop on runlevel [S016]
+
+  instance $DEV
+  respawn
+  pre-start exec /sbin/securetty $DEV
+  exec /sbin/agetty /dev/$DEV $SPEED vt100-nav
+  post-stop exec /sbin/initctl emit --no-wait fedora.serial-console-available DEV=$DEV SPEED=$SPEED
+  usage 'DEV=ttySX SPEED=Y  - where X is console id and Y is baud rate'
+
+看出什么区别来了吗？
+
+upstart和systemd是全新的方式，upstart是命令的方式，systemd则是conf形式。
+
+systemd
+""""""""""""""""""""""
+
++ ``Unit`` 用来描述服务的相关信息和依赖关系
++ ``Service`` 对服务本身进行描述
++ ``Install`` 说明他的运行环境
++ 运行级别也通过systemd来进行管理
+
+upstart
+"""""""""""""""""""""
+
++ 通过 ``start on runlevel [012345]`` 和 ``stop on runlevel [!RUNLEVEL]`` 来制定具体运行级别
++ 通过 ``exec`` 来运行相应的程序
++ 通过 `script ... end script`` 指令可以直接嵌入脚本
+
+一些更加细节的配置请查阅相关手册吧。
+
+我们可以通过 ``--init=xxx`` 内核参数来指定所使用的init系统。当然指定的这个init可以是任意的程序，你完全可以直接指定成为你想要的任何程序。
+
+目前大部分Linux发行版本都已经采用systemd作为默认的init系统，ubuntu现在使用的是upstart系统，而Debain也在投票的结果是选择了systemd，ubuntu也宣布会接受debian的上游选择决定。
+
+貌似现在systemd有统一Linux世界init系统的趋势。
+
+专题  web.py学习(二)    
+"""""""""""""""""""""""""""""""""""""
+
+**作者: ownone**
+
+web.py和通用概念
+"""""""""""""""""""""""""""""
+
+关于web.py解析上一次，和大家一块分析了web.py主体(httpserver)的调用流程。要仔细分析他们的调用流程，这是一件比较困难的事情。
+因为web.py为了方便大家的扩展，使用了很多近似的方法名称，如果你要用眼睛上去查看他们的调用，你非常可能被带入迷糊的境地。会有许多让你疑惑的内容我自己使用的方法是在web.py中添加了大量的调试信息。
+
+看了郎中撰写的flask的东东，我觉得我有点太钻牛角尖，非常想把web.py弄明白，但是并没有把web.py用好，这一次我的希望这次的web.py可以作为web.py三部曲（核心逻辑，如何使用，写一个凑合的web程序）的承上启下的内容。
+
+web.py里边包含着几个通用的概念HTTPServer，HTTPRequest，HTTPConnection，GateWay.这些概念在所有的server都会出现。
+
+* HTTPServer是web.py的大管家，创建套接字，建立线程池，处理http header，返回http状态和页面。
+* HTTPConnection在服务器上，意味着client，他就是client的代表。web.py非常形象的使用了一个方法communicate，体现了两者之间的关系。
+* HTTPRequest是client和server交互的实际的内容，非常直接的request，response。
+* GateWay 服务器和开发人员的面板。通过gateway，开发人员实现的逻辑，才能与客户端进行交流。
+
+好了，在这里对web.py的httpserver部分做了一个总结。
+
+hello world
+""""""""""""""""""""""""
+
+下边我将要更多的介绍web.py了。让大家怎么开始使用web.py，好了从臭名昭著的helloworld开始吧。
+
+.. code-block:: python
+
+    #-*- coding:utf-8 -*-
+    import web
+         
+    #定义url，将地址映射到对应的类
+    urls = (
+        "/", "index",
+    )
+    app = web.application(urls, globals())
+    #定义index类
+    class index:
+        #get请求
+        def GET(self):
+            return "Hello World"
+ 
+    if __name__ == "__main__":
+        app.run()
+
+
+请将这段代码保存到app.py里边，运行 ``python app.py`` (你必须已经安装了web.py),用浏览器访问 ``http://localhost:8080`` ，如果看到Hello World，那么恭喜你你已经成功运行了网站。你的代码已经提供了http服务。
+
+这个程序是我们的开端，所有的内容都在这个基础上延伸。让我们好好认识这个开端。
+
+路由表和服务器容器
+"""""""""""""""""""""""""
+
+urls --路由表，定义了客户端请求的url，可以使用正则表达式，web.py会为我们只能得匹配到合适的类。这里都是逗号，两两配对。
+
+注意：url匹配只匹配url路径不包括参数，例如：
+   ``/news/create?title=(.+)`` 
+其中起作用的url是/news/create
+
+web.application是我们web服务器的容器，我们把想要的url和对应的逻辑实现以后，它就忠实的为我们工作（因为web.application可见，让我觉得web.py像lib多个framework）
+这些自定义的类，有固定的GET，POST方法，以应对get和post请求。实现逻辑，返回给客户端。
+web.py使用了类来写视图，这是一个非常赞的设计，这样我们可以通过定义基类来实现很多功能，例如在视图开始前自动检查用户权限，将一些常用的方法写成基类方法，就能很方便的进行调用，甚至在一些特殊需求下，可以通过一个类视图，来衍生出很多页面，既提高了开发速度，也提高了可维护性。
+
+这很好，但是还有个疑问，我写一个helloword还行，让我写一个正常的页面，让我用一个字符串全return出来，这也太为难了，别着急。下边就是我们的模板。
+ 
+web.py模板
+"""""""""""""""""""""""""""
     
-    cd vendor/cyanogen
-    ./get-rommanager
-    cd ../..
+这个太重要了，让我想起的就是当初开始学习j2ee的时候，编写jsp，在webpage中编写<%Java代码%>。话说这个是一个伟大的历史的进步不是吗？不用什么都是print("")
+
+web.py在这个地方，有太多的选择，mako，genshi，jinja2.还有它自身的Templetor 。
+Templetor是web.py的模板语言，它能负责将 python 的强大功能传递给模板系统。 在模板中没有重新设计语法，它是类 python 的。
+在app.py同级目录建立文件夹templ,上创建hello.html
+内容为
+
+.. code-block:: python
+
+    $def with (name) 
+    Hello $name!
+
+
+将app.py中index类更新为
+
+.. code-block:: python
+  class index:
+    #get请求
+    def GET(self):
+        render = web.template.render('templates')
+        return render.hello('world')
+
+再次运行python app.py，hello word！又出现了。
+
+Templator非常强大，支持简易的语法可以实现
+
+* 定义变量，赋值
+
+.. code-block:: python 
+
+    $ bug = get_bug(id)
+    <h1>$bug.title</h1>
+    <div>
+        $bug.description
+    <div>
+
+
+* 过滤
+
+.. code-block:: python
+
+    $:form.render()
+
     
-    source ./build/envsetup.sh
-    lunch cyanogen_liberty-eng
-    make clean
-    brunch liberty
+* 转义符
+
+.. code-block:: python
+
+    5$$       $#我显示的是5dollar 
+
+* 注释
+
+.. code-block:: python 
+
+    $# this is a comment
+    hello $name.title()! $# display the name in title case
 
 
-编译期间出现的问题大多为依赖包未安装，根据提示安装好即可
+* 控制结构
 
-编译完成后会在 ``/out/target/product/[手机别名]目录生成cm-7-[日期]-UNOFFICIAL-[手机别名].zip`` ，可以使用刷机精灵之类的软件刷机入对应的手机当有应用调 sendTextMessage函数时，就会记录到  ``/data/data/ilog/smsLog.txt`` 。需求满足
+.. code-block:: python
 
+    $while a:
+        hello $a.pop()
+    $if times > max: 
+        Stop! In the name of love. 
+    $else: 
+        Keep on, you can do it.
 
-.. _`项目地址`: https://github.com/CyanogenMod/android
-.. [1] http://wiki.cyanogenmod.org/w/Devices#type="phone";cmversions="7"
-.. [2] http://wiki.cyanogenmod.org/w/Devices#type=%22phone%22;cmversions=%227%22
+* 内置 和 全局
+
+   像 python 的任何函数一样，模板系统同样可以使用内置以及局部参数。很多内置的公共方法像 range，min，max等，以及布尔值 True 和 False，在模板中都是可用的。部分内置和全局对象也可以使用在模板中。
+全局对象可以使用参数方式传给模板，使用 web.template.render：
+
+.. code-block:: python
+
+    import web
+    import markdown
+
+    globals = {'markdown': markdown.markdown}
+    render = web.template.render('templates', globals=globals)
+
+内置方法是否可以在模板中也是可以被控制的,为了安全性需要去掉内置的方法：
+
+.. code-block:: python
+
+    # 禁用所有内置方法
+    render = web.template.render('templates', builtins={})
+
+通过模板的这些定义，web.py具有了非常强大的页面表现能力。
+最后说一下，豆瓣后台部分就是使用web.py，不过模板系统使用的是mako。可见web.py是非常具有实用性的。 
+
 
 flask——KISS之美   
 ^^^^^^^^^^^^^^^^^^^^^^
 **作者: 江湖郎中**
 
-这个月ownone由于工作原因无法按期与大家分享 **web.py** 的内容了，我在想找一个相当量级的内容与大家分享， **Django** 太笨重了， **tornado** 重点在IO，还是 **flask** 和 **bottle** 合适，个人对 **flask** 稍有些了解，属于严重*入门级别*，打肿脸充胖子来和大家分享一下。
+ownone与大家分享 **web.py** 的内容了，我在想找一个相当量级的内容与大家分享， **Django** 太笨重了， **tornado** 重点在IO，还是 **flask** 和 **bottle** 合适，个人对 **flask** 稍有些了解，属于严重*入门级别*，打肿脸充胖子来和大家分享一下。
 
 flask是什么？当然他不是flash,官网给出的说明：
 
@@ -646,26 +626,33 @@ Tip
 -------
 开发
 ^^^^^
-shared_ptr的内存所有权使用计数器是非独占的，weak_ptr弱引用只引用不计数。
+   python的编码问题是一个老大难的问题，所以提议
+   
+   * 使用字符编码声明，并且同一工程中的所有源代码文件使用相同的字符编码声明。
+   * 抛弃str，全部使用unicode
+        
+        python和我们的os交互的时候，使用unicode会自动使用locale的方言，我们就不用为了系统使用什么方言而恼火。
 
 运维
 ^^^^^
-使用virtualenv可以更好的隔离python的版本依赖以便于部署与生产环境
+    使用logrotate管理日志，通过logrotate来将日志截断，打包，方便以后查看。
 
 使用
 ^^^^^
-emacs启动慢，通过hosts文件设置本机的机器名对应的ip即可
-
+    vim ``:!%xxd`` 查看二进制
 
 作者简介
---------
-.. image:: http://ssh.cnsworder.com/img/jz.jpg
+--------------
 
-:网名: 九州  
-:群ID: [广州]九州  
-:微博: http://t.qq.com/adu_na   
-:技术: 偏好c/c++ , 快忘干净的python ，以及工作偶尔用到的 java   
-:简介: 广州低阶IT人士，做过安卓安全研究，目前从事网络协议分析 ，希望以后能专职开发    
+.. image:: http://www.gravatar.com/avatar/c1991331b3e8139f3168fdaf71cb65c4.png
+
+:网名: cnsworder/crossword<br/>
+:群ID: [济南]江湖郎中   
+:网站: <http://www.cnsworder.com>  
+:blog: <http://blog.csdn.net/cnsword>  
+:微博: <http://www.weibo.com/cnsworder>  
+:技术: Linux C/C++ Python Golang    
+:简介: 专注于Linux智能设备与云的开发  
 
 .. note::
     欢迎群成员自荐自己的blog文章和收集的资源，发[邮件](mailto:cnsworder@gmail.com)给我，如果有意见或建议都可以mail我。    
