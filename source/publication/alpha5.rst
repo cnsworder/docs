@@ -5,7 +5,7 @@
 :微信号: linux_developer  
 :主辑: 猫猫  
 
-《GNU/Linux Developer》第**Aplha5**期和大家见面了，本期*我*将为大家带来专题**Linux init系统介绍**。  
+《GNU/Linux Developer》第**Aplha5**期和大家见面了，本期 *郎中* 将为大家带来专题 **Linux init系统介绍** 和 **flask--kiss之美**, *ownone* 继续 **web.py** 之旅 。  
 
 
 本期专题：Linux init系统介绍
@@ -143,12 +143,16 @@ SystemV init具体服务的配置内容：
 
 systemd和upstart在这种情况下产生了，他们都是事件驱动的，不得不说的是由于systemd开始时间晚于upstart所以很多特性也借鉴了upstart，同时systemd还借鉴了Mac OS X的Launcher系统。
 
-+ systemd  
-    systemd 是 Linux 下的一款系统和服务管理器，兼容 SysV 和 LSB 的启动脚本。systemd 的特性有：支持并行化任务；同时采用 socket 式与 D-Bus 总线式激活服务；按需启动守护进程（daemon）；利用 Linux 的 cgroups 监视进程；支持快照和系统恢复；维护挂载点和自动挂载点；各服务间基于依赖关系进行精密控制。  
++ systemd
+
+.. note::
+
+    systemd 是 Linux 下的一款系统和服务管理器，兼容 SysV 和 LSB 的启动脚本。systemd 的特性有：支持并行化任务；同时采用 socket 式与 D-Bus 总线式激活服务；按需启动守护进程（daemon）；利用 Linux 的 cgroups 监视进程；支持快照和系统恢复；维护挂载点和自动挂载点；各服务间基于依赖关系进行精密控制。
+
                   --维基百科
 
-    systemctl来管理systemd，同时也兼容service命令
-    所有的systemd配置在 ``/usr/lib/systemd`` 目录下,当启动用后会被链接或者拷贝到/etc/systemd目录下
+systemctl来管理systemd，同时也兼容service命令
+所有的systemd配置在 ``/usr/lib/systemd`` 目录下,当启动用后会被链接或者拷贝到/etc/systemd目录下
 
 + upstart
   - 使用initctl来管理upstart
@@ -388,7 +392,7 @@ flask——KISS之美
 ^^^^^^^^^^^^^^^^^^^^^^
 **作者: 江湖郎中**
 
-ownone与大家分享 **web.py** 的内容了，我在想找一个相当量级的内容与大家分享， **Django** 太笨重了， **tornado** 重点在IO，还是 **flask** 和 **bottle** 合适，个人对 **flask** 稍有些了解，属于严重*入门级别*，打肿脸充胖子来和大家分享一下。
+ownone与大家分享 **web.py** 的内容了，我在想找一个相当量级的内容与大家分享， **Django** 太笨重了， **tornado** 重点在IO，还是 **flask** 和 **bottle** 合适，个人对 **flask** 稍有些了解，属于严重 *入门级别* ，打肿脸充胖子来和大家分享一下。
 
 flask是什么？当然他不是flash,官网给出的说明：
 
@@ -566,7 +570,7 @@ uwsgi的配置文件支持xml、ini、yaml，个人感觉xml太繁琐了，ini�
     #flask.yaml
     uwsgi:
       pythonpath: /opt/flask_test
-      module run.py
+      module: run.py
       callable: app
       processes: 5
       socket: /tmp/flask.socket
@@ -580,7 +584,7 @@ uwsgi的配置文件支持xml、ini、yaml，个人感觉xml太繁琐了，ini�
 简单即是美
 """"""""""""""
 
-flask太简单了，以至于我们不得不去自己去做很多事情来使他完成我们的任务。某种程度上说他不应该是*框架*而是一个*库*。
+flask太简单了，以至于我们不得不去自己去做很多事情来使他完成我们的任务。某种程度上说他不应该是 *框架* 而是一个 *库* 。
 
 flask虽小但是他通过 ``request`` 、 ``session`` 等对象漂亮的完成了对web相关的工作
 
@@ -596,11 +600,15 @@ https://github.com/mitsuhiko/flask/tree/website
 
 资源推荐
 ------------
-<http://coolshell.cn/ "酷壳">    陈皓哥为大家推荐的技术文档，内容很丰富。
+coolshell_    陈皓哥为大家推荐的技术文档，内容很丰富。
 
-<http://blog.csdn.net/column/details/hackingios.html "iOS安全功放">: 美女程序员吴茜的大作，分析iOS数据窃取与防范的好文章。 
+ios_ : 美女程序员吴茜的大作，分析iOS数据窃取与防范的好文章。 
 
-<http://blog.csdn.net/yiyaaixuexi/article/category/1302842 "Android安全攻防">: 美女的另一大作，介绍android安全机制SEAndroid。
+android_ : 美女的另一大作，介绍android安全机制SEAndroid。
+
+.. _coolshell: http://coolshell.cn "酷壳"
+.. _ios: http://blog.csdn.net/column/details/hackingios.html "iOS安全功放"
+.. _android: http://blog.csdn.net/yiyaaixuexi/article/category/1302842 "Android安全攻防"
 
 code block
 ------------
