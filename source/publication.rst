@@ -8,3 +8,4 @@
     publication/alpha2
     publication/alpha3
     publication/alpha4
+    publication/alpha5
