@@ -626,6 +626,7 @@ code block
    print ''.join(dict(zip(a, b)).get(c) for c in s)
    #处理批量代换大代码
 
+
 Tip
 -------
 
@@ -645,6 +646,7 @@ Tip
 使用
 ^^^^^
     vim ``:!%xxd`` 查看二进制
+
 
 作者简介
 --------------
