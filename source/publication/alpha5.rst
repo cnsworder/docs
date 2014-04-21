@@ -603,9 +603,9 @@ https://github.com/mitsuhiko/flask/tree/website
 
 |coolshell|_    陈皓哥为大家推荐的技术文档，内容很丰富。
 
-ios_ : 美女程序员吴茜的大作，分析iOS数据窃取与防范的好文章。 
+|ios|_ : 美女程序员吴茜的大作，分析iOS数据窃取与防范的好文章。 
 
-android_ : 美女的另一大作，介绍android安全机制SEAndroid。
+|android|_ : 美女的另一大作，介绍android安全机制SEAndroid。
 
 .. |coolshell| replace:: 酷壳
 .. |ios| replace:: iOS安全攻防
