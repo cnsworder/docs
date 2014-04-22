@@ -1,13 +1,11 @@
 第Alpha1期
 =========================
+:Author: 江湖郎中
+:Date: 2013-11-24
+:Category: Linux
+:Tags: ArchLinux
 
-.. image:: https://www.kernel.org/theme/images/logos/tux.png
-
-:版本: 3.12.5
-
-:QQ群号: 20506135 
-
-:本期编辑: 江湖郎中
+:QQ群号: 20506135
 
 
 很荣幸的向各位Linux开发QQ群的成员宣布《GNU/Linux Developer》第\ **alpha1**\ 期发布了！   

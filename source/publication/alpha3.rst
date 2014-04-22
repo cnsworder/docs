@@ -1,11 +1,11 @@
 第Alpha3期
 ==============================================================  
-
-.. image:: http://ssh.cnsworder.com/img/tux.png
-
-:QQ群号: 20506135 
+:Author: 猫猫
+:Date: 2013-11-24
+:Category: publication
+:Tags: Python,C/C++
+:QQ群号: 20506135  
 :微信号: linux_developer  
-:本期编辑: 猫猫  
 :专题作者: onwone  
 
 《GNU/Linux Developer》第 **Aplha3** 期在春节后和大家见面了，本期 **onwone** 有 **《C/C++编译系统》** 、 **《web.py分析(一)》** 两个专题和大家分享。     
@@ -49,7 +49,7 @@ C/C++的编译过程和Makefile
 
 对于C/C++的编译的过程可以分成很多细节。可以看图  
 
-.. image:: http://ssh.cnsworder.com/img/compile_process.jpg
+.. image:: http://docs.cnsworder.com/img/compile_process.jpg
 
 
 真实的情况只是很简单的场景，我们不是在汇编课上，需要使用gcc生成汇编语言来完成我们的作业。 
@@ -227,6 +227,7 @@ webpy使用到得基本技术
     >>> int N: id = 0x8e82044, val = 10   
 
    .. code-block:: python
+
         mul10 = maker(N) # action.func_closure中含有整数10（即自由变量N）(<cell at 0x90e96bc: int object at 0x8e82044>,)  
 
     闭包的这种 能够记住环境状态 的特性非常有用，Python中有一些其他特性就是借助闭包来实现的，比如 装饰器。  
@@ -388,7 +389,7 @@ Tip
 
 作者简介
 --------
-.. image:: http://ssh.cnsworder.com/img/ownone.jpg
+.. image:: http://docs.cnsworder.com/img/ownone.jpg
 
 :网名: ownone  
 :群ID: [北京]Num1*  

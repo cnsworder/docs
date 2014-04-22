@@ -1,9 +1,12 @@
 第Alpha5期
 ==============================================================  
-
-:QQ群号: 20506135 
+:Author: cnsworder
+:Date: 2013-11-24
+:Category: publication
+:Tags: Python, Linux
+:QQ群号: 20506135  
 :微信号: linux_developer  
-:主辑: 猫猫  
+:专题作者: onwone 江湖郎中 
 
 《GNU/Linux Developer》第 **Aplha5** 期和大家见面了，本期 *郎中* 将为大家带来专题 **Linux init系统介绍** 和 **flask--kiss之美**, *ownone* 继续 **web.py** 之旅 。  
 
