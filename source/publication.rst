@@ -4,8 +4,8 @@
 
 .. toctree::
 
-    publication/alpha1
-    publication/alpha2
-    publication/alpha3
-    publication/alpha4
-    publication/alpha5
+    docsource/publication/alpha1
+    docsource/publication/alpha2
+    docsource/publication/alpha3
+    docsource/publication/alpha4
+    docsource/publication/alpha5
